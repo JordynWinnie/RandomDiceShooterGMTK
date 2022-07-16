@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject Bullet;
 
     private float lastFiredTime = 0f;
+    [SerializeField] private float bulletSpeed = 100f;
     [SerializeField] private float fireRate = 0.5f;
     [SerializeField] private Transform barrelLocation;
 
@@ -23,7 +24,7 @@ public class PlayerController : MonoBehaviour
             if (lastFiredTime < 0)
             {
                 var bullet = Instantiate(Bullet, barrelLocation.position, barrelLocation.rotation);
-                bullet.GetComponent<Rigidbody>().AddForce(barrelLocation.forward * 100f, ForceMode.Impulse);
+                bullet.GetComponent<Rigidbody>().AddForce(barrelLocation.forward * bulletSpeed, ForceMode.Impulse);
                 lastFiredTime = fireRate;
             }
         }
