@@ -1,3 +1,4 @@
+using Core;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,6 +15,16 @@ namespace Projectiles
         private void Start()
         {
             rb.AddForce(transform.forward * projectileSpeed, ForceMode.Impulse);
+
+            StartCoroutine(StartDestory());
+        }
+
+        IEnumerator StartDestory()
+        {
+            yield return new WaitForSeconds(projectileLifetime);
+
+            PoolManager.instance.PushToPool(gameObject);
+
         }
     }
 }
