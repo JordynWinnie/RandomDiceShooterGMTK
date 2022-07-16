@@ -15,7 +15,7 @@ namespace Player
 
         private void Start()
         {
-            EquipWeapon(0);
+            EquipWeapon(1);
         }
 
         private void Update()

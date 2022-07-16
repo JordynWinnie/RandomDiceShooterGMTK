@@ -103,6 +103,7 @@ namespace Core
 
             beforeSetActive(poolItem);
             poolItem.SetActive(true);
+            poolItem.transform.SetParent(null);
             return poolItem;
         }
         #endregion
