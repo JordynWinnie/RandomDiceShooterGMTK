@@ -22,7 +22,6 @@ namespace Projectiles
 
         private void Update()
         {
-            yield return new WaitForSeconds(projectileLifetime);
             if (_lifetime <= 0f)
             {
                 DestroyProjectile();
