@@ -79,10 +79,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponID: 0
   shootAnchor: {fileID: 1918222706668545364}
-  damage: 10
   shootInterval: 0.15
-  projectile: {fileID: 1335247546199075769, guid: cac51d05a1e9dfc4c9e589fd712871b3,
+  projectile: {fileID: 3384929227308224387, guid: f24158bd4782fec41a90f911912d0e22,
     type: 3}
+  damage: 10
+  lifetime: 2.5
+  speed: 50
 --- !u!1001 &1243446049592715715
 PrefabInstance:
   m_ObjectHideFlags: 0

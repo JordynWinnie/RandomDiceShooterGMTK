@@ -62,7 +62,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectileSpeed: 30
-  projectileLifetime: 2.5
+  projectileLifetime: 0.5
   rb: {fileID: 8274048404306872684}
 --- !u!54 &8274048404306872684
 Rigidbody:
