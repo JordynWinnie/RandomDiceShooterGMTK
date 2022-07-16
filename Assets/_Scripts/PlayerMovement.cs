@@ -9,15 +9,14 @@ public class PlayerMovement : MonoBehaviour
     public float gravity = -9.81f;
     public float jumpHeight = 1.0f;
 
-    Vector3 velocity;
-    // Start is called before the first frame update
-    void Start()
+    private Vector3 velocity;
+    
+    private void Start()
     {
         characterController = GetComponent<CharacterController>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
         var isGrounded = characterController.isGrounded;
         if (isGrounded && velocity.y < 0)

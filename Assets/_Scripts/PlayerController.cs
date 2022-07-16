@@ -4,19 +4,18 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] GameObject Bullet;
+    [SerializeField] private GameObject Bullet;
 
-    float lastFiredTime = 0f;
-    [SerializeField] float fireRate = 0.5f;
-    [SerializeField] Transform barrelLocation;
-    // Start is called before the first frame update
-    void Start()
+    private float lastFiredTime = 0f;
+    [SerializeField] private float fireRate = 0.5f;
+    [SerializeField] private Transform barrelLocation;
+
+    private void Start()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
         lastFiredTime -= Time.deltaTime;
         if (Input.GetButton("Fire1"))
