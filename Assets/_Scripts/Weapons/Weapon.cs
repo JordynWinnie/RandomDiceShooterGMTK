@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Core;
+using Projectiles;
 
 namespace WeaponNamespace
 {
@@ -11,11 +12,16 @@ namespace WeaponNamespace
         [SerializeField] private int weaponID;
         [SerializeField] private Transform shootAnchor;
         
-        public float damage;
+        [Header("Weapon")]
         public float shootInterval;
         public GameObject projectile;
-
+        
         private float _shootInterval;
+
+        [Header("Projectile")]
+        public float damage = 1f;
+        public float lifetime = 1f;
+        public float speed = 30f;
 
         public int WeaponID => weaponID;
 
@@ -33,9 +39,13 @@ namespace WeaponNamespace
         {
             if (_shootInterval < 0)
             {
-                GameObject spawnedProjectile = PoolManager.instance.PullFromPool(projectile, obj =>
+                PoolManager.instance.PullFromPool(projectile, projectile =>
                 {
-                    obj.transform.SetPositionAndRotation(shootAnchor.position, shootAnchor.rotation);
+                    projectile.transform.SetPositionAndRotation(shootAnchor.position, shootAnchor.rotation);
+                    Bullet bullet = projectile.GetComponent<Bullet>();
+                    bullet.damage = damage;
+                    bullet.speed = speed;
+                    bullet.lifeTime = lifetime;
                 });
 
                 _shootInterval = shootInterval;

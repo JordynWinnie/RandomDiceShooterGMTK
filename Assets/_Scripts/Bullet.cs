@@ -7,21 +7,40 @@ namespace Projectiles
 {
     public class Bullet : MonoBehaviour
     {
-        public float projectileSpeed = 30f;
-        public float projectileLifetime = 1f;
+        [HideInInspector] public float damage;
+        [HideInInspector] public float speed = 30f;
+        [HideInInspector] public float lifeTime = 1f;
         
+        private float _lifetime;
         [SerializeField] private Rigidbody rb;
 
-        private void Start()
+        private void OnEnable()
         {
-            rb.AddForce(transform.forward * projectileSpeed, ForceMode.Impulse);
-
-            StartCoroutine(StartDestory());
+            rb.AddForce(transform.forward * speed, ForceMode.Impulse);
+            _lifetime = lifeTime;
         }
 
-        IEnumerator StartDestory()
+        private void Update()
         {
             yield return new WaitForSeconds(projectileLifetime);
+            if (_lifetime <= 0f)
+            {
+                DestroyProjectile();
+            }
+            else
+            {
+                _lifetime -= Time.deltaTime;
+            }
+        }
+
+        private void OnCollisionEnter(Collision collision)
+        {
+            //Hit Logic
+        }
+
+        public virtual void DestroyProjectile()
+        {
+            rb.velocity = Vector3.zero;
             PoolManager.instance.PushToPool(gameObject);
         }
     }
