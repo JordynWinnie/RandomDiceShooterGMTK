@@ -23,6 +23,7 @@ public class GeneralEnemy : Enemy
 
         if (Vector3.Distance(playerLocation.transform.position, transform.position) < attackRange)
         {
+            StartCoroutine(_traumaInducer.StartAnim());
             playerLocation.GetComponent<IDamageable>().TakeDamage(damageDealt);
             _attackCoolDown = attackCoolDown;
         }

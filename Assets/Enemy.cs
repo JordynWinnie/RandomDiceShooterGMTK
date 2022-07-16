@@ -6,6 +6,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
 {
     [SerializeField] public Transform playerLocation;
     private NavMeshAgent _agent;
+    protected TraumaInducer _traumaInducer;
     [SerializeField] protected float health = 10f;
     [SerializeField] protected float damageDealt = 5f;
     [SerializeField] protected float score = 10f;
@@ -14,6 +15,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     protected virtual void Start()
     {
         _agent = GetComponent<NavMeshAgent>();
+        _traumaInducer = GetComponent<TraumaInducer>();
     }
 
     // Update is called once per frame

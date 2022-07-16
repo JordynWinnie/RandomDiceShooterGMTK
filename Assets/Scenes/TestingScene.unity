@@ -1353,6 +1353,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 10
+  _cameraShake: {fileID: 330585549}
 --- !u!1001 &7401597862362293764
 PrefabInstance:
   m_ObjectHideFlags: 0
