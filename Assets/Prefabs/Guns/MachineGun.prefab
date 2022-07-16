@@ -79,9 +79,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponID: 0
   shootAnchor: {fileID: 1918222706668545364}
-  shootInterval: 0.15
-  projectile: {fileID: 3384929227308224387, guid: f24158bd4782fec41a90f911912d0e22,
-    type: 3}
+  shootInterval: 0.075
+  bullet: {fileID: 0}
   damage: 10
   lifetime: 5
   speed: 50

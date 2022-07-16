@@ -116,9 +116,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a054a054adaa7b40bdd03adfca61e87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletID: 1
   damage: 0
   speed: 30
   lifeTime: 1
+  pierceCount: 0
+  explosionRange: 0
   rb: {fileID: -7047234495057746057}
 --- !u!65 &1044217901754471502
 BoxCollider:

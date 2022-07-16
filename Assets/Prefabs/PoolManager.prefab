@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7401597861502261622}
   - component: {fileID: 1967603571}
+  - component: {fileID: 387449365}
   m_Layer: 0
   m_Name: PoolManager
   m_TagString: Untagged
@@ -30,7 +31,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1967603571
 MonoBehaviour:
@@ -46,3 +47,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   poolContainer: {fileID: 7401597861502261622}
   prePools: []
+--- !u!114 &387449365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7401597861502261621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd02a8859e5c11446932c2c7e553daad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosionParticle: {fileID: 8552191079053789170, guid: 6a3d0f5fc92569849ac65889b458aaf1,
+    type: 3}
+  bulletPrefabs:
+  - {fileID: 1335247546199075769, guid: cac51d05a1e9dfc4c9e589fd712871b3, type: 3}
+  - {fileID: 3384929227308224387, guid: f24158bd4782fec41a90f911912d0e22, type: 3}
+  - {fileID: 1335247546199075769, guid: 24574899d9d5ed04c8ba340fa95775a5, type: 3}
