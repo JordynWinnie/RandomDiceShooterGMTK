@@ -22,9 +22,7 @@ namespace Projectiles
         IEnumerator StartDestory()
         {
             yield return new WaitForSeconds(projectileLifetime);
-
             PoolManager.instance.PushToPool(gameObject);
-
         }
     }
 }
