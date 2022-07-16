@@ -2,15 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+namespace Projectiles
 {
-    private void Start()
+    public class Bullet : MonoBehaviour
     {
+        public float projectileSpeed = 30f;
+        public float projectileLifetime = 1f;
         
-    }
+        [SerializeField] private Rigidbody rb;
 
-    private void Update()
-    {
-        
+        private void Start()
+        {
+            rb.AddForce(transform.forward * projectileSpeed, ForceMode.Impulse);
+        }
     }
 }
