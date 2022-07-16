@@ -34,7 +34,8 @@ namespace Projectiles
 
         private void OnCollisionEnter(Collision collision)
         {
-            //Hit Logic
+            collision.gameObject.TryGetComponent<IDamageable>(out var damageable);
+            damageable?.TakeDamage(damage);
         }
 
         public virtual void DestroyProjectile()

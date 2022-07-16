@@ -5,8 +5,8 @@ public abstract class Enemy : MonoBehaviour, IDamageable
 {
     [SerializeField] public Transform playerLocation;
     private NavMeshAgent _agent;
-    protected float health = 10f;
-    protected float damageDealt = 5f;
+    [SerializeField] protected float health = 10f;
+    [SerializeField] protected float damageDealt = 5f;
 
     // Start is called before the first frame update
     protected virtual void Start()
@@ -18,14 +18,8 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     protected virtual void Update()
     {
         _agent.SetDestination(playerLocation.position);
-    }
 
-    protected void OnCollisionEnter(Collision collision)
-    {
-        print("Take Damage");
-        collision.gameObject.TryGetComponent<IDamageable>(out var damaged);
-
-        damaged?.TakeDamage(damageDealt);
+        
     }
 
     public virtual void TakeDamage(float damage)
