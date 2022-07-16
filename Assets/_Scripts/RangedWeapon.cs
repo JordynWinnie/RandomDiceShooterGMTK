@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Core;
 
 namespace Weapon
 {
@@ -13,14 +14,12 @@ namespace Weapon
 
         private float _shootInterval;
 
-        public virtual void Update()
-        {
-            TickShootInterval();
-        }
+        public virtual void Update() => TickShootInterval();
 
         public virtual void Shoot()
         {
-
+            GameObject spawnedProjectile = PoolManager.instance.PullFromPool(projectile);
+            _shootInterval = shootInterval;
         }
 
         public void TickShootInterval()
