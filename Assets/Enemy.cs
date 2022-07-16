@@ -1,3 +1,4 @@
+using System.Reflection;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -7,6 +8,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     private NavMeshAgent _agent;
     [SerializeField] protected float health = 10f;
     [SerializeField] protected float damageDealt = 5f;
+    [SerializeField] protected float score = 10f;
 
     // Start is called before the first frame update
     protected virtual void Start()
@@ -17,8 +19,12 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     // Update is called once per frame
     protected virtual void Update()
     {
-        _agent.SetDestination(playerLocation.position);
+        _agent.SetDestination(playerLocation.transform.position);
+        DealDamage();
+    }
 
+    protected virtual void DealDamage()
+    {
         
     }
 
@@ -26,10 +32,9 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     {
         health -= damage;
 
-        if (health <= 0)
-        {
-            Death();
-        }
+        if (!(health <= 0)) return;
+        GameManager.instance.AddScore(score);
+        Death();
     }
 
     public virtual void Death()

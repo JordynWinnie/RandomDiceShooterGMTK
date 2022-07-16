@@ -1,16 +1,27 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, IDamageable
 {
+    [SerializeField] private float maxHealth;
+    private float currentHealth;
+
     private void Start()
     {
-        
+        currentHealth = maxHealth;
+        GameManager.instance.SetHealthUI(currentHealth, maxHealth);
     }
 
-    private void Update()
+    public void TakeDamage(float damage)
     {
+        currentHealth -= damage;
+        GameManager.instance.SetHealthUI(currentHealth, maxHealth);
 
+        if (currentHealth <= 0)
+        {
+            GameManager.instance.GameOver();
+        }
     }
 }
