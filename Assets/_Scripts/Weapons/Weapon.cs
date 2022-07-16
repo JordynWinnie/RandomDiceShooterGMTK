@@ -19,6 +19,11 @@ namespace WeaponNamespace
 
         public int WeaponID => weaponID;
 
+        private void Start()
+        {
+            _shootInterval = shootInterval;
+        }
+
         public virtual void Update()
         {
             TickShootInterval();
@@ -26,12 +31,15 @@ namespace WeaponNamespace
 
         public virtual void Shoot()
         {
-            GameObject spawnedProjectile = PoolManager.instance.PullFromPool(projectile, obj =>
+            if (_shootInterval < 0)
             {
-                obj.transform.SetPositionAndRotation(shootAnchor.position, shootAnchor.rotation);
-            });
+                GameObject spawnedProjectile = PoolManager.instance.PullFromPool(projectile, obj =>
+                {
+                    obj.transform.SetPositionAndRotation(shootAnchor.position, shootAnchor.rotation);
+                });
 
-            _shootInterval = shootInterval;
+                _shootInterval = shootInterval;
+            }
         }
 
         public void TickShootInterval()
