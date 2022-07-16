@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI ScoreUI;
     [SerializeField] private TextMeshProUGUI HealthUI;
+    [SerializeField] private Image RedScreen;
     public static GameManager instance;
     private float _score = 0;
     
@@ -38,6 +39,21 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         print("Game Over!");
+    }
+
+    public IEnumerator FlashScreenRed()
+    {
+        var color = RedScreen.color;
+        
+        color.a = 0.5f;
+
+        RedScreen.color = color;
+        while (color.a >= 0)
+        {
+            color.a -= 0.01f;
+            RedScreen.color = color;
+            yield return new WaitForSeconds(0.01f);
+        }
     }
 
     private void UpdateScoreUI()

@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     {
         currentHealth -= damage;
         GameManager.instance.SetHealthUI(currentHealth, maxHealth);
-       
+        StartCoroutine(GameManager.instance.FlashScreenRed());
         if (currentHealth <= 0)
         {
             GameManager.instance.GameOver();
