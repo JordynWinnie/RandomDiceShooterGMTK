@@ -83,7 +83,7 @@ MonoBehaviour:
   projectile: {fileID: 3384929227308224387, guid: f24158bd4782fec41a90f911912d0e22,
     type: 3}
   damage: 10
-  lifetime: 2.5
+  lifetime: 5
   speed: 50
 --- !u!1001 &1243446049592715715
 PrefabInstance:
