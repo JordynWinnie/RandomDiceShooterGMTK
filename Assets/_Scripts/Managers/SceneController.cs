@@ -18,6 +18,7 @@ namespace Scene
 
         public void ChangeScene(int sceneIndex)
         {
+            Time.timeScale = 1f;
             SceneManager.LoadSceneAsync(sceneIndex);
         }
 
