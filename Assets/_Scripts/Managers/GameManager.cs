@@ -154,19 +154,6 @@ public class GameManager : MonoBehaviour
         timerUI.SetText($"Next Roll: {_internalTimer:00}");
     }
 
-    private void RandomizerLogic()
-    {
-        if (_randInterval <= 0f)
-        {
-            weaponHandler.EquipWeapon(MathHelper.RandomFromIntZeroTo(weaponCatalogue.WeaponList.Length), MathHelper.RandomFromIntZeroTo(AssetManager.instance.BulletPrefabArray.Length));
-            _randInterval = maxRandInterval;
-        }
-        else
-        {
-            _randInterval -= Time.deltaTime;
-        }
-    }
-
     public void AddScore(int score)
     {
         _score += score;
@@ -181,6 +168,12 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         leaderboardManager.SubmitScore(_score);
+        StartCoroutine(ReturnHome());
+    }
+
+    private IEnumerator ReturnHome()
+    {
+        yield return new WaitForSeconds(2f);
         sceneController.ChangeScene(sceneController.MainSceneID);
         Cursor.lockState = CursorLockMode.None;
     }

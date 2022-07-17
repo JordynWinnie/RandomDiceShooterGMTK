@@ -20,11 +20,15 @@ namespace Projectiles
         private float _damage;
         private float _lifetime;
         [SerializeField] private Rigidbody rb;
+        [SerializeField] private TrailRenderer trailRenderer;
 
         public int BulletID => bulletID;
 
         private void OnEnable()
         {
+            if (trailRenderer != null)
+                trailRenderer.Clear();
+
             rb.AddForce(transform.forward * speed, ForceMode.Impulse);
             _lifetime = lifeTime;
 

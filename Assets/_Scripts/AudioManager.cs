@@ -32,7 +32,7 @@ public class AudioManager : MonoBehaviour
 
     public void PlayGunAudio()
     {
-        PlayAudio(gunFire, 0.1f, Random.Range(0.8f, 1.1f));
+        PlayAudio(gunFire, 0.05f, Random.Range(0.8f, 1.1f));
     }
 
     public void AbilityChimeAudio()
