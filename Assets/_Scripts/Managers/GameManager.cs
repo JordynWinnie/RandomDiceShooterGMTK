@@ -15,7 +15,8 @@ public class GameManager : MonoBehaviour
     public int _score;
     [SerializeField] private int currentRoll = -1;
 
-    [Header("Player")] [SerializeField] private GameObject player;
+    [Header("Player")] 
+    [SerializeField] private GameObject player;
 
     [SerializeField] private WeaponCatalogueSO weaponCatalogue;
     public PlayerController _playerController;
@@ -28,7 +29,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float maxTime;
     [SerializeField] private float minTime;
 
-    [Header("UI")] [SerializeField] private TextMeshProUGUI ScoreUI;
+    [Header("UI")] 
+    [SerializeField] private TextMeshProUGUI ScoreUI;
 
     [SerializeField] private TextMeshProUGUI HealthUI;
     [SerializeField] private TextMeshProUGUI intervalUI;
@@ -40,11 +42,17 @@ public class GameManager : MonoBehaviour
     [Header("Components")] [SerializeField]
     private SceneController sceneController;
 
+    [Header("Pages")]
+    [SerializeField] private GameObject gameScreen;
+    [SerializeField] private GameObject pauseScreen;
+    [SerializeField] private GameObject gameOverScreen;
+
     [SerializeField] private LeaderboardManager leaderboardManager;
     private BuffManager _buffManager;
     private float _internalTimer;
     private bool _isRolling;
     private WeaponHandler weaponHandler;
+    private bool isPaused;
 
     public float RandomizeInterval => maxRandInterval;
     public float CurrentRandInterval { get; private set; }
@@ -108,6 +116,24 @@ public class GameManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.M)) AudioListener.volume = AudioListener.volume == 1 ? 0 : 1;
         UpdateTimer();
+
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P))
+        {
+            if (isPaused)
+            {
+                gameScreen.SetActive(true);
+                pauseScreen.SetActive(false);
+                Time.timeScale = 1f;
+            }
+            else
+            {
+                gameScreen.SetActive(false);
+                pauseScreen.SetActive(true);
+                Time.timeScale = 0f;
+            }
+
+            isPaused = !isPaused;
+        }
     }
 
     private IEnumerator RollDice()
@@ -166,6 +192,8 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
+        gameScreen.SetActive(false);
+        gameOverScreen.SetActive(true);
         leaderboardManager.SubmitScore(_score);
         StartCoroutine(ReturnHome());
     }

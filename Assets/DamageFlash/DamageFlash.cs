@@ -53,5 +53,10 @@ namespace Assets.Scripts.DamageFlash
                 gameObject.TryGetComponent(out meshRenderer);
             }
         }
+
+        private void OnDisable()
+        {
+            StopAllCoroutines();
+        }
     }
 }
