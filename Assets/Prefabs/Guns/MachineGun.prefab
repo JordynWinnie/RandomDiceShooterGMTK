@@ -79,11 +79,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponID: 0
   shootAnchor: {fileID: 1918222706668545364}
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 64
   shootInterval: 0.075
   bullet: {fileID: 0}
   damage: 10
   lifetime: 5
   speed: 50
+  explosionRange: 0
+  explosionFalloffPercentage: 0
 --- !u!1001 &1243446049592715715
 PrefabInstance:
   m_ObjectHideFlags: 0
