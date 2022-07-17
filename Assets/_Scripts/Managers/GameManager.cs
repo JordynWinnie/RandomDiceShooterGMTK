@@ -9,6 +9,7 @@ using Player;
 using WeaponNamespace;
 using Scene;
 using Networking.LookLocker;
+using Random = System.Random;
 
 public class GameManager : MonoBehaviour
 {
@@ -25,11 +26,13 @@ public class GameManager : MonoBehaviour
     private WeaponHandler weaponHandler;
     public PlayerController _playerController;
     public PlayerMovement _playerMovement;
+    public AudioManager _audioManager;
 
     [Header("Randomizer")]
     [SerializeField] private float maxRandInterval;
 
-    [SerializeField] private float timer;
+    [SerializeField] private float maxTime;
+    [SerializeField] private float minTime;
     private float _randInterval;
 
     public float RandomizeInterval => maxRandInterval;
@@ -71,6 +74,7 @@ public class GameManager : MonoBehaviour
         
         _playerController = player.GetComponent<PlayerController>();
         _playerMovement = player.GetComponent<PlayerMovement>();
+        _audioManager = GetComponent<AudioManager>();
         
         _randInterval = maxRandInterval;
         _buffManager = GetComponent<BuffManager>();
@@ -85,6 +89,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator RollDice()
     {
+        _audioManager.PlayDiceAudio();
         _isRolling = true;
         var timesChanged = 10;
         timerUI.SetText($"Next Roll: Rolling...");
@@ -96,13 +101,15 @@ public class GameManager : MonoBehaviour
             timesChanged -= 1;
         }
 
-        _internalTimer = timer;
+        _internalTimer = UnityEngine.Random.Range(minTime, maxTime);
         currentRoll = index;
         _isRolling = false;
         _buffManager.ChangeBuff(currentRoll);
     }
-    
-    
+
+    public void GunShotSound() => _audioManager.PlayGunAudio(); 
+    public void AbilityChimeSound() => _audioManager.AbilityChimeAudio(); 
+    public void ExplodeSound() => _audioManager.PlayExplosionSound(); 
 
     private void UpdateTimer()
     {

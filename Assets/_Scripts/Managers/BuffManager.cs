@@ -30,17 +30,7 @@ public class BuffManager : MonoBehaviour
         };
 
 
-        currentBuffs = new List<Buff>()
-        {
-            Buffs[2],
-            Buffs[2],
-            Buffs[2],
-            Buffs[2],
-            Buffs[2],
-            Buffs[2],
-        };
-        /*
-         *new List<Buff>
+        currentBuffs = new List<Buff>
         {
             Buffs[0],
             Buffs[1],
@@ -49,8 +39,7 @@ public class BuffManager : MonoBehaviour
             Buffs[6],
             Buffs[7],
         };
-         * 
-         */
+   
             UpdateBuffUI();
     }
 
@@ -72,6 +61,7 @@ public class BuffManager : MonoBehaviour
         CurrentBuffUI.gameObject.SetActive(true);
         CurrentBuffUI.sprite = currentBuff.BuffSprite;
         buffText.SetText(currentBuff.name);
+        GameManager.instance.AbilityChimeSound();
         LeanTween.scale(BuffUI, Vector3.one, 1f).setOnComplete(
                 () =>
                 {

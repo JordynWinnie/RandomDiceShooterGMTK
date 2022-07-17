@@ -47,6 +47,7 @@ namespace Projectiles
         {
             if (explosionRange > 0f)
             {
+                
                 Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRange, enemyLayer);
                 foreach (Collider collider in colliders)
                 {
