@@ -7373,23 +7373,23 @@ MonoBehaviour:
   spawnerState: 0
   spawnItems:
   - item: {fileID: 37745898833679909, guid: 14fa4a5307f65bf41a7269db1152b1d0, type: 3}
-    cost: 0
+    cost: 1
     spawnAfterWave: 0
     waveCooldown: 0
   - item: {fileID: 37745898833679909, guid: 5dbcb52cadbb2944ca72653718d98942, type: 3}
-    cost: 1
+    cost: 2
     spawnAfterWave: 3
     waveCooldown: 0
   - item: {fileID: 37745898833679909, guid: 19cdf74ce3ff9ef4c9b9da0d19aca8c1, type: 3}
-    cost: 2
+    cost: 3
     spawnAfterWave: 5
     waveCooldown: 0
   - item: {fileID: 37745898833679909, guid: 21bf254b760798c43bd7fb896b6051bb, type: 3}
-    cost: 3
+    cost: 4
     spawnAfterWave: 9
     waveCooldown: 0
   - item: {fileID: 37745898833679909, guid: 7d9a591ecf0d78749b7e10366f417d4e, type: 3}
-    cost: 5
+    cost: 7
     spawnAfterWave: 12
     waveCooldown: 0
 --- !u!4 &1199395297
