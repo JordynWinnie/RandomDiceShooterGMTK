@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 using UnityEngine;
 
 public class AudioManager : MonoBehaviour
@@ -8,7 +9,8 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioClip[] diceRolls;
     [SerializeField] private AudioClip gunFire;
     [SerializeField] private AudioClip abilityChime;
-    [SerializeField] private AudioClip explosionSound;
+    [SerializeField] private AudioClip purchasedSound;
+    [SerializeField] private AudioClip errorPurchaseSound;
     private AudioSource _audioSource;
 
     private List<AudioSource> _SFX = new();
@@ -37,10 +39,15 @@ public class AudioManager : MonoBehaviour
     {
         PlayAudio(abilityChime, 0.2f, Random.Range(0.8f, 1.1f));
     }
-
-    public void PlayExplosionSound()
+    
+    public void PlayPurchaseSound()
     {
-        PlayAudio(explosionSound, 0.5f, Random.Range(0.8f, 1.1f));
+        PlayAudio(purchasedSound, 0.1f);
+    }
+    
+    public void PlayErrorSound()
+    {
+        PlayAudio(errorPurchaseSound, 0.5f);
     }
 
     void PlayAudio(AudioClip clip, float volume = 1f, float pitch = 1f)

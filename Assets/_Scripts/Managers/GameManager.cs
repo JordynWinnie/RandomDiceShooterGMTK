@@ -84,9 +84,36 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            if (_score >= 100)
+            {
+                _audioManager.PlayPurchaseSound();
+                AddScore(-100);
+                _internalTimer -= 5;
+            }
+            else
+            {
+                _audioManager.PlayErrorSound();
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            if (_score >= 200)
+            {
+                _audioManager.PlayPurchaseSound();
+                AddScore(-200);
+                _internalTimer += 5;
+            }
+            else
+            {
+                _audioManager.PlayErrorSound();
+            }
+        }
         UpdateTimer();
     }
-
+    
     IEnumerator RollDice()
     {
         _audioManager.PlayDiceAudio();
@@ -109,8 +136,7 @@ public class GameManager : MonoBehaviour
 
     public void GunShotSound() => _audioManager.PlayGunAudio(); 
     public void AbilityChimeSound() => _audioManager.AbilityChimeAudio(); 
-    public void ExplodeSound() => _audioManager.PlayExplosionSound(); 
-
+    
     private void UpdateTimer()
     {
         if (_isRolling) return;
