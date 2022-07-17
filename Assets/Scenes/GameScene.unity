@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.000055046083, g: 0.00014094963, b: 0.0042733354,
+  m_IndirectSpecularColor: {r: 0.000064787346, g: 0.00014024801, b: 0.0042892084,
     a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
@@ -8101,6 +8101,8 @@ GameObject:
   - component: {fileID: 1679782123}
   - component: {fileID: 1679782124}
   - component: {fileID: 1679782125}
+  - component: {fileID: 1679782126}
+  - component: {fileID: 1679782127}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -8136,6 +8138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89de1d0cedec01342a4941f442974727, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _score: 0
   currentRoll: -1
   player: {fileID: 2066539524}
   weaponCatalogue: {fileID: 11400000, guid: 284bbaee4a250794b81af17d62b38daa, type: 2}
@@ -8156,6 +8159,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: a941d7ee1fd60054984bd458f900ddcf, type: 3}
   RedScreen: {fileID: 315575210}
   diceImage: {fileID: 1475328087}
+  sceneController: {fileID: 1679782126}
+  leaderboardManager: {fileID: 1679782127}
 --- !u!114 &1679782125
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8175,6 +8180,35 @@ MonoBehaviour:
   - {fileID: 1576402287}
   - {fileID: 1393045129}
   - {fileID: 737627074}
+--- !u!114 &1679782126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1679782122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52b5725237fea294ca880a994b0ef886, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1679782127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1679782122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e53224fa15a976439db15234bba53ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerNamesTMP: {fileID: 0}
+  scoresTMP: {fileID: 0}
+  loadingTMP: {fileID: 0}
+  usernameTMP: {fileID: 0}
+  loadUIless: 1
 --- !u!1001 &1817593733
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8811,6 +8845,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 20
+  currentHealth: 0
 --- !u!1001 &7401597862362293764
 PrefabInstance:
   m_ObjectHideFlags: 0
