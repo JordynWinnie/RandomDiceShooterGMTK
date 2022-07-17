@@ -39,6 +39,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Image RedScreen;
     [SerializeField] private Image diceImage;
 
+    public GameObject Player => player;
+
     private void Awake()
     {
         if (instance == null)
