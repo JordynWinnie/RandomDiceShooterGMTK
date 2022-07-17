@@ -45,5 +45,10 @@ namespace Player
 
             weaponScript.bullet = AssetManager.instance.GetBulletPrefab(bulletID);
         }
+
+        public void SetProjectile(int bulletID)
+        {
+            weaponScript.bullet = AssetManager.instance.GetBulletPrefab(bulletID);
+        }
     }
 }

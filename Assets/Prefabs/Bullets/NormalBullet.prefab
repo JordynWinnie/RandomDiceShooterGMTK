@@ -61,8 +61,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a054a054adaa7b40bdd03adfca61e87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileSpeed: 30
-  projectileLifetime: 0.5
+  bulletID: 0
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  damage: 0
+  damageMultiplier: 1
+  speed: 30
+  lifeTime: 1
+  explosionRange: 0
+  explosionFalloffPercentage: 0
   rb: {fileID: 8274048404306872684}
 --- !u!54 &8274048404306872684
 Rigidbody:

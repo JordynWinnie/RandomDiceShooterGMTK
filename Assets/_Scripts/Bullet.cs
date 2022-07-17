@@ -11,11 +11,13 @@ namespace Projectiles
 
         [HideInInspector] public LayerMask enemyLayer;
         [HideInInspector] public float damage;
+        [SerializeField] public float damageMultiplier;
         [HideInInspector] public float speed = 30f;
         [HideInInspector] public float lifeTime = 1f;
         [HideInInspector] public float explosionRange;
         [HideInInspector] public float explosionFalloffPercentage;
 
+        private float _damage;
         private float _lifetime;
         [SerializeField] private Rigidbody rb;
 
@@ -25,6 +27,8 @@ namespace Projectiles
         {
             rb.AddForce(transform.forward * speed, ForceMode.Impulse);
             _lifetime = lifeTime;
+
+            _damage = damage * damageMultiplier;
         }
 
         private void Update()
@@ -47,7 +51,7 @@ namespace Projectiles
                 foreach (Collider collider in colliders)
                 {
                     float distPercentage = (100 - explosionFalloffPercentage) / explosionRange * Vector3.Distance(transform.position, collider.transform.position);
-                    float dmgPercentage = damage/100 * (100 - distPercentage);
+                    float dmgPercentage = _damage / 100 * (100 - distPercentage);
                     DamageComponent(collider.gameObject, dmgPercentage);
                 }
 
@@ -57,7 +61,7 @@ namespace Projectiles
                 return;
             }
 
-            DamageComponent(collision.gameObject, damage);
+            DamageComponent(collision.gameObject, _damage);
         }
 
         private void DamageComponent(GameObject component, float dmg)
