@@ -63,7 +63,7 @@ Transform:
   - {fileID: 1918222706668545364}
   - {fileID: 1642444857893670440}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6302890969049650023
 MonoBehaviour:
@@ -82,7 +82,7 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 64
-  shootInterval: 0.075
+  shootInterval: 0.15
   bullet: {fileID: 0}
   damage: 10
   lifetime: 5

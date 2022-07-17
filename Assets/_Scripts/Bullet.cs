@@ -54,9 +54,10 @@ namespace Projectiles
                     float dmgPercentage = _damage / 100 * (100 - distPercentage);
                     DamageComponent(collider.gameObject, dmgPercentage);
                 }
-
-                GameObject explosionParticle = Instantiate(AssetManager.instance.ExplosionParticle, transform.position, Quaternion.identity);
-                Destroy(explosionParticle, 5f);
+                
+                GameObject explosionParticle = 
+                    Instantiate(AssetManager.instance.ExplosionParticle, transform.position, Quaternion.identity);
+                Destroy(explosionParticle, 3f);
                 DestroyProjectile();
                 return;
             }

@@ -28,9 +28,19 @@ public class BuffManager : MonoBehaviour
             new BananaBuff(Resources.Load<Sprite>("banana"), "Banana??"),
             new PotatoBuff(Resources.Load<Sprite>("potato"), "poTato??!"),
         };
-        
-        
-        currentBuffs = new List<Buff>
+
+
+        currentBuffs = new List<Buff>()
+        {
+            Buffs[2],
+            Buffs[2],
+            Buffs[2],
+            Buffs[2],
+            Buffs[2],
+            Buffs[2],
+        };
+        /*
+         *new List<Buff>
         {
             Buffs[0],
             Buffs[1],
@@ -39,7 +49,9 @@ public class BuffManager : MonoBehaviour
             Buffs[6],
             Buffs[7],
         };
-        UpdateBuffUI();
+         * 
+         */
+            UpdateBuffUI();
     }
 
     void UpdateBuffUI()
@@ -52,14 +64,12 @@ public class BuffManager : MonoBehaviour
 
     public void ChangeBuff(int index)
     {
-        
         if (currentBuff != null)
         {
             currentBuff.CleanUpBuff();
         }
-        
-        
         currentBuff = currentBuffs[index];
+        CurrentBuffUI.gameObject.SetActive(true);
         CurrentBuffUI.sprite = currentBuff.BuffSprite;
         buffText.SetText(currentBuff.name);
         LeanTween.scale(BuffUI, Vector3.one, 1f).setOnComplete(

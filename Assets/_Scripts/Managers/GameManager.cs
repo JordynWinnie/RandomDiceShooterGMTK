@@ -144,6 +144,7 @@ public class GameManager : MonoBehaviour
     {
         leaderboardManager.SubmitScore(_score);
         sceneController.ChangeScene(sceneController.MainSceneID);
+        Cursor.lockState = CursorLockMode.None;
     }
 
     public IEnumerator FlashScreenRed()

@@ -6,11 +6,28 @@
   <component name="ChangeListManager">
     <list default="true" id="62b148f0-5d34-4f9f-97f7-59311448b7c6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.RandomDiceShooterGMTK/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RandomDiceShooterGMTK/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Guns/MachineGun.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Guns/MachineGun.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Nat's Scene.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Nat's Scene.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Bullet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Bullet.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Managers/BuffManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Managers/BuffManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Managers/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Managers/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/zOthers/Fonts/PressStart2P-Regular SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/zOthers/Fonts/PressStart2P-Regular SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Managers/SceneController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Managers/SceneController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/zOthers/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/zOthers/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/zOthers/TutorialInfo.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/zOthers/TutorialInfo/Icons.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/zOthers/TutorialInfo/Icons/URP.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/zOthers/TutorialInfo/Icons/URP.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/zOthers/TutorialInfo/Layout.wlt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/zOthers/TutorialInfo/Layout.wlt.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/zOthers/TutorialInfo/Scripts.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/zOthers/TutorialInfo/Scripts/Editor.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/zOthers/TutorialInfo/Scripts/Editor/ReadmeEditor.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/zOthers/TutorialInfo/Scripts/Editor/ReadmeEditor.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/zOthers/TutorialInfo/Scripts/Readme.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/zOthers/TutorialInfo/Scripts/Readme.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +112,7 @@
       <workItem from="1657982952226" duration="4078000" />
       <workItem from="1658028959806" duration="4801000" />
       <workItem from="1658039749801" duration="11289000" />
-      <workItem from="1658056701050" duration="578000" />
+      <workItem from="1658056701050" duration="4195000" />
     </task>
     <servers />
   </component>
