@@ -5,11 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="62b148f0-5d34-4f9f-97f7-59311448b7c6" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.RandomDiceShooterGMTK/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RandomDiceShooterGMTK/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Scripts/Buffs/ScoreMultiplier.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Scripts/Buffs/ScoreMultiplier.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/BuffManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BuffManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TestingScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TestingScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Managers/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Managers/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Player/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Player/PlayerController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,6 +30,9 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2C1mztaaz88GrvOBSywhJ0s8x8F" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -91,7 +93,7 @@
       <workItem from="1657978741361" duration="3777000" />
       <workItem from="1657982952226" duration="4078000" />
       <workItem from="1658028959806" duration="4801000" />
-      <workItem from="1658039749801" duration="7114000" />
+      <workItem from="1658039749801" duration="7805000" />
     </task>
     <servers />
   </component>

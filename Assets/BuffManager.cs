@@ -1,3 +1,4 @@
+using Projectiles.Buffs;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,14 +19,15 @@ public class BuffManager : MonoBehaviour
             new ExplosiveBuff(Resources.Load<Sprite>("explosives")),
             new HeavyWeightBuff(Resources.Load<Sprite>("heavyweight")),
             new KOBuff(Resources.Load<Sprite>("death")),
+            new ScoreMultiplier(Resources.Load<Sprite>("2")),
         };
         currentBuffs = new[] {
-            Buffs[4],
-            Buffs[4],
-            Buffs[4],
-            Buffs[4],
-            Buffs[4],
-            Buffs[4]
+            Buffs[5],
+            Buffs[5],
+            Buffs[5],
+            Buffs[5],
+            Buffs[5],
+            Buffs[5]
         };
         UpdateBuffUI();
     }
