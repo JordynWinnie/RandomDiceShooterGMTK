@@ -12,6 +12,9 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     private float _score = 0;
+    private bool _isRolling = false;
+    private float _internalTimer = 0f;
+    [SerializeField] private int currentRoll = -1;
 
     [Header("Player")]
     [SerializeField] private GameObject player;
@@ -20,6 +23,8 @@ public class GameManager : MonoBehaviour
 
     [Header("Randomizer")]
     [SerializeField] private float maxRandInterval;
+
+    [SerializeField] private float timer;
     private float _randInterval;
 
     public float RandomizeInterval => maxRandInterval;
@@ -29,7 +34,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI ScoreUI;
     [SerializeField] private TextMeshProUGUI HealthUI;
     [SerializeField] private TextMeshProUGUI intervalUI;
+    [SerializeField] private TextMeshProUGUI timerUI;
+    [SerializeField] private List<Sprite> dieSprites;
     [SerializeField] private Image RedScreen;
+    [SerializeField] private Image diceImage;
 
     private void Awake()
     {
@@ -50,11 +58,45 @@ public class GameManager : MonoBehaviour
 
         weaponHandler = player.GetComponent<WeaponHandler>();
         _randInterval = maxRandInterval;
+        StartCoroutine(RollDice());
     }
 
     private void Update()
     {
         RandomizerLogic();
+        UpdateTimer();
+    }
+
+    IEnumerator RollDice()
+    {
+        _isRolling = true;
+        var timesChanged = 30;
+        timerUI.SetText($"Next Roll:\nRolling...");
+        var index = -1;
+        while (timesChanged > 0)
+        {
+            diceImage.sprite = MathHelper.RandomFromList(dieSprites, out index);
+            yield return new WaitForSeconds(0.1f);
+            timesChanged -= 1;
+        }
+
+        _internalTimer = timer;
+        currentRoll = index;
+        _isRolling = false;
+    }
+    
+    
+
+    private void UpdateTimer()
+    {
+        if (_isRolling) return;
+        if (_internalTimer < 0)
+        {
+            StartCoroutine(RollDice());
+            return;
+        }
+        _internalTimer -= Time.deltaTime;
+        timerUI.SetText($"Next Roll:\n{_internalTimer:00}");
     }
 
     private void RandomizerLogic()
