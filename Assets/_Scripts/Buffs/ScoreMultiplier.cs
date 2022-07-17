@@ -4,7 +4,7 @@ namespace Projectiles.Buffs
 {
     public class ScoreMultiplier : Buff
     {
-        private float currentScore = 0f;
+        private int currentScore = 0;
         public ScoreMultiplier(Sprite buffSprite) : base(buffSprite)
         {
         }

@@ -7,11 +7,13 @@ using UnityEngine.UI;
 using Core;
 using Player;
 using WeaponNamespace;
+using Scene;
+using Networking.LookLocker;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-    public float _score = 0;
+    public int _score = 0;
     private bool _isRolling = false;
     private float _internalTimer = 0f;
     private BuffManager _buffManager;
@@ -41,6 +43,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] private List<Sprite> dieSprites;
     [SerializeField] private Image RedScreen;
     [SerializeField] private Image diceImage;
+
+    [Header("Components")]
+    [SerializeField] private SceneController sceneController;
+    [SerializeField] private LeaderboardManager leaderboardManager;
 
     public GameObject Player => player;
 
@@ -124,7 +130,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void AddScore(float score)
+    public void AddScore(int score)
     {
         _score += score;
         UpdateScoreUI();
@@ -137,7 +143,8 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        print("Game Over!");
+        leaderboardManager.SubmitScore(_score);
+        sceneController.ChangeScene(sceneController.MainSceneID);
     }
 
     public IEnumerator FlashScreenRed()

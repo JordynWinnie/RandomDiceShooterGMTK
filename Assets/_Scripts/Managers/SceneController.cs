@@ -7,8 +7,11 @@ namespace Scene
 {
     public class SceneController : MonoBehaviour
     {
-        public const int MAIN_SCENE = 0;
-        public const int GAME_SCENE = 1;
+        [SerializeField] private const int MAIN_SCENE = 0;
+        [SerializeField] private const int GAME_SCENE = 1;
+
+        public int MainSceneID => MAIN_SCENE;
+        public int GameSceneID => GAME_SCENE;
 
         public void ChangeScene(int sceneIndex)
         {
