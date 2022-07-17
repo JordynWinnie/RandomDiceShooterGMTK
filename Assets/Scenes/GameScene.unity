@@ -124,7 +124,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 23800000, guid: e0af91771971e9e48929a11215c3cdad, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: c57746d9b6ac7594995c4c3a5044e9c3, type: 2}
 --- !u!1001 &108635210
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7213,7 +7213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 139cb5fddf29e504da3b152529d111ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnArea: {x: 60, y: 60}
+  spawnArea: {x: 20, y: 20}
   spawnParent: {fileID: 1199395297}
   maxAlive: 20
   obstacleLayer:
@@ -7236,10 +7236,6 @@ MonoBehaviour:
     cost: 1
     spawnAfterWave: 0
     waveCooldown: 0
-  - item: {fileID: 37745898833679909, guid: 19cdf74ce3ff9ef4c9b9da0d19aca8c1, type: 3}
-    cost: 1
-    spawnAfterWave: 0
-    waveCooldown: 0
 --- !u!4 &1199395297
 Transform:
   m_ObjectHideFlags: 0
@@ -7248,7 +7244,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1199395295}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.79, z: 0}
+  m_LocalPosition: {x: 0, y: 8.44, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8488,7 +8484,7 @@ Transform:
   m_GameObject: {fileID: 1846907041}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2036678649}
@@ -9021,7 +9017,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55b01de1583ed084b8cb8e0c98ae3b3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 20
+  maxHealth: 50
   currentHealth: 0
 --- !u!1001 &7401597862362293764
 PrefabInstance:

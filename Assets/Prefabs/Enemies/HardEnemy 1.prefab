@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 37745898833679917}
   - component: {fileID: 37745898833679916}
   m_Layer: 6
-  m_Name: EasyEnemy
+  m_Name: HardEnemy 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -66,7 +66,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ffbc2c240311cce4698887dc8c816577, type: 2}
+  - {fileID: 2100000, guid: 7472ceaaa75ec8e40b81f0bb06fcd7ed, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -112,7 +112,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 5.5
+  m_Speed: 12.5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -136,9 +136,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c9cc02d818c56f41a3bbaad2f7176c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 20
-  damageDealt: 5
-  score: 10
+  health: 50
+  damageDealt: 10
+  score: 100
 --- !u!114 &37745898833679917
 MonoBehaviour:
   m_ObjectHideFlags: 0

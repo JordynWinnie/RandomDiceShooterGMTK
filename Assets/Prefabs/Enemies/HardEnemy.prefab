@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 37745898833679917}
   - component: {fileID: 37745898833679916}
   m_Layer: 6
-  m_Name: TallEnemy
+  m_Name: HardEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,12 +31,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 37745898833679909}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.78, z: -13.780001}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &37745898833679910
 MeshFilter:
@@ -112,7 +112,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 7.5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -136,10 +136,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c9cc02d818c56f41a3bbaad2f7176c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerLocation: {fileID: 0}
   health: 50
-  damageDealt: 5
-  score: 10
+  damageDealt: 10
+  score: 100
 --- !u!114 &37745898833679917
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -84,7 +84,7 @@ MonoBehaviour:
     m_Bits: 64
   shootInterval: 0.15
   bullet: {fileID: 0}
-  damage: 10
+  damage: 5
   lifetime: 5
   speed: 50
   explosionRange: 0

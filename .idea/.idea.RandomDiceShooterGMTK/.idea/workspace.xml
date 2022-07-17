@@ -6,13 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="62b148f0-5d34-4f9f-97f7-59311448b7c6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.RandomDiceShooterGMTK/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RandomDiceShooterGMTK/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AudioManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AudioManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Particles/Explosion.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Particles/Explosion.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/EnemyColor.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/EnemyColor.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Enemies/EasyEnemy.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Enemies/EasyEnemy.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Enemies/TallEnemy.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Enemies/TallEnemy.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Guns/MachineGun.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Guns/MachineGun.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Bullet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Bullet.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Managers/BuffManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Managers/BuffManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Managers/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Managers/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Weapons/Weapon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Weapons/Weapon.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,7 +99,7 @@
       <workItem from="1657982952226" duration="4078000" />
       <workItem from="1658028959806" duration="4801000" />
       <workItem from="1658039749801" duration="11289000" />
-      <workItem from="1658056701050" duration="7786000" />
+      <workItem from="1658056701050" duration="9332000" />
     </task>
     <servers />
   </component>
