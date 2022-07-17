@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Core;
+using System;
 using UnityEngine;
 
 namespace Game
@@ -41,10 +42,6 @@ namespace Game
         [SerializeField] private EntitySpawnModifiers[] spawnModifiers;
         private GameManager gameManager;
 
-        public virtual void Start()
-        {
-        }
-
         protected void OnDrawGizmos()
         {
             Gizmos.DrawWireCube(transform.position, new Vector3(spawnArea.x, 0f, spawnArea.y));
@@ -55,7 +52,11 @@ namespace Game
 
         protected GameObject Spawn(GameObject prefab, Vector3 position)
         {
-            var entity = Instantiate(prefab, position, Quaternion.identity, spawnParent);
+            var entity = PoolManager.instance.PullFromPool(prefab, unit =>
+            {
+                unit.transform.SetPositionAndRotation(position, Quaternion.identity);
+                unit.transform.SetParent(spawnParent);
+            });
             entity.transform.forward = -Vector3.forward;
 
             for (var i = 0; i < addOnSpawn.Length; i++) entity.AddComponent(addOnSpawn[i].GetType());

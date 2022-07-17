@@ -1,3 +1,5 @@
+using Assets.Scripts.DamageFlash;
+using Core;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -9,10 +11,14 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     private NavMeshAgent _agent;
     protected TraumaInducer _traumaInducer;
     protected Transform playerLocation;
+    protected DamageFlash damageFlash;
+    protected float currHealth;
 
     // Start is called before the first frame update
-    protected virtual void Start()
+    protected virtual void OnEnable()
     {
+        currHealth = health;
+        damageFlash = GetComponent<DamageFlash>();
         _agent = GetComponent<NavMeshAgent>();
         _traumaInducer = GetComponent<TraumaInducer>();
         playerLocation = GameManager.instance.Player.transform;
@@ -27,9 +33,11 @@ public abstract class Enemy : MonoBehaviour, IDamageable
 
     public virtual void TakeDamage(float damage)
     {
-        health -= damage;
+        currHealth -= damage;
+        damageFlash.Flash();
 
-        if (!(health <= 0)) return;
+        if (!(currHealth <= 0)) return;
+
         GameManager.instance.AddScore(score);
         Death();
     }
@@ -40,6 +48,6 @@ public abstract class Enemy : MonoBehaviour, IDamageable
 
     public virtual void Death()
     {
-        Destroy(gameObject);
+        PoolManager.instance.PushToPool(gameObject);
     }
 }

@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 37745898833679906}
   - component: {fileID: 37745898833679917}
   - component: {fileID: 37745898833679916}
+  - component: {fileID: 5431878998193477155}
   m_Layer: 6
   m_Name: SquareBoss
   m_TagString: Untagged
@@ -36,7 +37,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &37745898833679910
 MeshFilter:
@@ -136,7 +137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c9cc02d818c56f41a3bbaad2f7176c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 1000
+  health: 750
   damageDealt: 25
   score: 200
 --- !u!114 &37745898833679917
@@ -170,3 +171,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &5431878998193477155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 37745898833679909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f628bf9a641060c4db05a36d5c9d0eff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashMat: {fileID: 2100000, guid: 0b4b05fcd79a58043a9a23bac1cb49d0, type: 2}
+  meshRenderer: {fileID: 37745898833679911}
+  blinkDuration: 0.075

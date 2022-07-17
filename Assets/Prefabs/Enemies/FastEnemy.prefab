@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 37745898833679917}
   - component: {fileID: 37745898833679916}
   - component: {fileID: 7041787248386637368}
+  - component: {fileID: 5701198381224984808}
   m_Layer: 6
   m_Name: FastEnemy
   m_TagString: Untagged
@@ -273,3 +274,18 @@ TrailRenderer:
   m_Autodestruct: 0
   m_Emitting: 1
   m_ApplyActiveColorSpace: 1
+--- !u!114 &5701198381224984808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 37745898833679909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f628bf9a641060c4db05a36d5c9d0eff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashMat: {fileID: 2100000, guid: 0b4b05fcd79a58043a9a23bac1cb49d0, type: 2}
+  meshRenderer: {fileID: 37745898833679911}
+  blinkDuration: 0.075

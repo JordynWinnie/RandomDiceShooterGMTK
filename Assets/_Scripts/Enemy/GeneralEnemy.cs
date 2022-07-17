@@ -6,9 +6,9 @@ public class GeneralEnemy : Enemy
     protected float attackCoolDown = 2f;
     protected float attackRange = 2f;
 
-    protected override void Start()
+    protected override void OnEnable()
     {
-        base.Start();
+        base.OnEnable();
         _attackCoolDown = attackCoolDown;
     }
 
