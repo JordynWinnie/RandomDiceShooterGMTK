@@ -1,11 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class HeavyWeightBuff : Buff
 {
-    private float currentSpeed = 0f;
-    
+    private float currentSpeed;
+
+    public HeavyWeightBuff(Sprite buffSprite, string name) : base(buffSprite, name)
+    {
+    }
+
     public override void InitialiseBuff()
     {
         currentSpeed = GameManager.instance._playerMovement.speed;
@@ -19,9 +21,5 @@ public class HeavyWeightBuff : Buff
     public override void CleanUpBuff()
     {
         GameManager.instance._playerMovement.speed = currentSpeed;
-    }
-
-    public HeavyWeightBuff(Sprite buffSprite, string name) : base(buffSprite, name)
-    {
     }
 }

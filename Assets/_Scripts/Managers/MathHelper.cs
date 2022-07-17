@@ -1,8 +1,4 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 
 public enum ModificationType
@@ -35,29 +31,27 @@ public static class MathHelper
             case ModificationType.Multiply:
                 value *= amount;
                 break;
-            default:
-                break;
         }
     }
 
     public static float RandomBetweenFloats(float a = 0f, float b = 100f)
     {
-        return UnityEngine.Random.Range(a, b);
+        return Random.Range(a, b);
     }
 
     public static int RandomBetweenInts(int a = 0, int b = 100)
     {
-        return UnityEngine.Random.Range(a, b);
+        return Random.Range(a, b);
     }
 
     public static float RandomFromFloatZeroTo(float value)
     {
-        return UnityEngine.Random.Range(0f, value);
+        return Random.Range(0f, value);
     }
 
     public static int RandomFromIntZeroTo(int value)
     {
-        return UnityEngine.Random.Range(0, value);
+        return Random.Range(0, value);
     }
 
     public static T RandomFromArray<T>(T[] list)
@@ -84,93 +78,68 @@ public static class MathHelper
 
     public static Vector3 InArea(Vector3 spawnArea)
     {
-        float xPos = UnityEngine.Random.Range(-spawnArea.x / 2f, spawnArea.x / 2f);
-        float yPos = UnityEngine.Random.Range(-spawnArea.y / 2f, spawnArea.y / 2f);
-        float zPos = UnityEngine.Random.Range(-spawnArea.z / 2f, spawnArea.z / 2f);
+        var xPos = Random.Range(-spawnArea.x / 2f, spawnArea.x / 2f);
+        var yPos = Random.Range(-spawnArea.y / 2f, spawnArea.y / 2f);
+        var zPos = Random.Range(-spawnArea.z / 2f, spawnArea.z / 2f);
         return new Vector3(xPos, yPos, zPos);
     }
 
     public static Vector3 RandomVectorDirectionAroundY()
     {
-        int index = RandomFromIntZeroTo(4);
+        var index = RandomFromIntZeroTo(4);
         if (index == 0)
-        {
             return Vector3.forward;
-        }
-        else if (index == 1)
-        {
+        if (index == 1)
             return Vector3.back;
-        }
-        else if (index == 3)
-        {
+        if (index == 3)
             return Vector3.left;
-        }
-        else
-        {
-            return Vector3.right;
-        }
+        return Vector3.right;
     }
 
     public static Vector3 PointAtCircumferenceXZ(Vector3 center, float radius)
     {
-        float theta = RandomFromFloatZeroTo(360);
-        float opposite = radius * Mathf.Sin(theta);
-        float adjacent = radius * Mathf.Cos(theta);
+        var theta = RandomFromFloatZeroTo(360);
+        var opposite = radius * Mathf.Sin(theta);
+        var adjacent = radius * Mathf.Cos(theta);
         return center + new Vector3(adjacent, 0f, opposite);
     }
 
     public static Vector3 OfVectorDirectionAny()
     {
-        int index = RandomFromIntZeroTo(6);
+        var index = RandomFromIntZeroTo(6);
         if (index == 0)
-        {
             return Vector3.forward;
-        }
-        else if (index == 1)
-        {
+        if (index == 1)
             return Vector3.back;
-        }
-        else if (index == 3)
-        {
+        if (index == 3)
             return Vector3.left;
-        }
-        else if (index == 4)
-        {
+        if (index == 4)
             return Vector3.right;
-        }
-        else if (index == 5)
-        {
+        if (index == 5)
             return Vector3.up;
-        }
-        else
-        {
-            return Vector3.down;
-        }
+        return Vector3.down;
     }
 
     //My glorious tier chance, number line, random index generator
     public static int RandomIndex<T>(T[] list, float[] chances)
     {
-        float[] tierChances = new float[list.Length];
-        float prevChance = 0f;
+        var tierChances = new float[list.Length];
+        var prevChance = 0f;
         //makes tierChances look like a number line
         //0--[chance 1]--30--[chance 2]--70--[chance 3]--100
-        for (int i = 0; i < list.Length; i++)
+        for (var i = 0; i < list.Length; i++)
         {
             tierChances[i] = prevChance + chances[i];
             prevChance = tierChances[i];
         }
 
         //simple randomizes a number and then check the ranges
-        int randomTier = UnityEngine.Random.Range(0, 100);
-        for (int i = 0; i < tierChances.Length; i++)
+        var randomTier = Random.Range(0, 100);
+        for (var i = 0; i < tierChances.Length; i++)
         {
-            float highNum = i == tierChances.Length - 1 ? 100 : tierChances[i];
-            float lowNum = i == 0 ? 0 : tierChances[i - 1];
-            if (randomTier > lowNum && randomTier < highNum)
-            {
-                return i;
-            }
+            var highNum = i == tierChances.Length - 1 ? 100 : tierChances[i];
+            var lowNum = i == 0 ? 0 : tierChances[i - 1];
+            if (randomTier > lowNum && randomTier < highNum) return i;
         }
 
         return 0;

@@ -5,7 +5,11 @@ namespace Projectiles.Buffs
 {
     public class BananaBuff : Buff
     {
-        WeaponHandler weaponHandler;
+        private WeaponHandler weaponHandler;
+
+        public BananaBuff(Sprite buffSprite, string name) : base(buffSprite, name)
+        {
+        }
 
         public override void InitialiseBuff()
         {
@@ -15,16 +19,11 @@ namespace Projectiles.Buffs
 
         public override void UpdateBuff()
         {
-            
         }
 
         public override void CleanUpBuff()
         {
             weaponHandler.SetProjectile(0);
-        }
-
-        public BananaBuff(Sprite buffSprite, string name) : base(buffSprite, name)
-        {
         }
     }
 }

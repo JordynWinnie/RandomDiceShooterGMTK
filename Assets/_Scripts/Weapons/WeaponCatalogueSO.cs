@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace WeaponNamespace
@@ -12,13 +10,10 @@ namespace WeaponNamespace
 
         public GameObject GetWeapon(int weaponID)
         {
-            foreach (GameObject weaponObject in weaponList)
+            foreach (var weaponObject in weaponList)
             {
-                Weapon rangedWeapon = weaponObject.GetComponent<Weapon>();
-                if (rangedWeapon.WeaponID == weaponID)
-                {
-                    return weaponObject;
-                }
+                var rangedWeapon = weaponObject.GetComponent<Weapon>();
+                if (rangedWeapon.WeaponID == weaponID) return weaponObject;
             }
 
             Debug.LogError($"Could not find a weapon with the matching ID: {weaponID}");

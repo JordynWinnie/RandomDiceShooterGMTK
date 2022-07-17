@@ -1,11 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class KOBuff : Buff
 {
-    private float currentHealth = 0f;
-    private bool gameOver = false;
+    private float currentHealth;
+    private bool gameOver;
+
+    public KOBuff(Sprite buffSprite, string name) : base(buffSprite, name)
+    {
+    }
 
     public override void InitialiseBuff()
     {
@@ -24,11 +26,6 @@ public class KOBuff : Buff
     }
 
     public override void CleanUpBuff()
-    {
-        
-    }
-
-    public KOBuff(Sprite buffSprite, string name) : base(buffSprite, name)
     {
     }
 }

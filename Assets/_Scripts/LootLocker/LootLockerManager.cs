@@ -1,9 +1,7 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
+using LootLocker.Requests;
 using UnityEngine;
 using UnityEngine.Events;
-using LootLocker.Requests;
 
 namespace Networking.LookLocker
 {
@@ -14,12 +12,15 @@ namespace Networking.LookLocker
         public UnityEvent OnConnected;
         public UnityEvent OnFailedToConnect;
 
-        private void Start() => StartCoroutine(LogInRoutine());
+        private void Start()
+        {
+            StartCoroutine(LogInRoutine());
+        }
 
         private IEnumerator LogInRoutine()
         {
-            bool done = false;
-            LootLockerSDKManager.StartGuestSession((res) =>
+            var done = false;
+            LootLockerSDKManager.StartGuestSession(res =>
             {
                 if (res.success)
                 {

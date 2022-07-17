@@ -1,63 +1,59 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using System.Collections.Generic;
 using DentedPixel;
+using UnityEngine;
 
-public class PerformanceTests : MonoBehaviour {
-
-    public bool debug = false;
+public class PerformanceTests : MonoBehaviour
+{
+    public bool debug;
 
     public GameObject bulletPrefab;
 
-    private LeanPool bulletPool = new LeanPool();
-
-    private Dictionary<GameObject, int> animIds = new Dictionary<GameObject, int>();
-
     public float shipSpeed = 1f;
+
+    private readonly Dictionary<GameObject, int> animIds = new();
+
+    private readonly LeanPool bulletPool = new();
     private float shipDirectionX = 1f;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    private void Start()
+    {
+        var pool = bulletPool.init(bulletPrefab, 400);
+        for (var i = 0; i < pool.Length; i++) animIds[pool[i]] = -1;
+    }
 
-        GameObject[] pool = bulletPool.init(bulletPrefab, 400, null, true);
-        for (int i = 0; i < pool.Length; i++){
-            animIds[pool[i]] = -1;
-        }
-	}
-	
-	// Update is called once per frame
-	void Update () {
-
+    // Update is called once per frame
+    private void Update()
+    {
         // Spray bullets
-        for (int i = 0; i < 10; i++)
+        for (var i = 0; i < 10; i++)
         {
-            GameObject go = bulletPool.retrieve();
-            int animId = animIds[go];
-            if (animId >= 0){
+            var go = bulletPool.retrieve();
+            var animId = animIds[go];
+            if (animId >= 0)
+            {
                 if (debug)
                     Debug.Log("canceling id:" + animId);
 
                 LeanTween.cancel(animId);
             }
+
             go.transform.position = transform.position;
 
-            float incr = (float)(5-i) * 0.1f;
-            Vector3 to = new Vector3(Mathf.Sin(incr) * 180f, 0f, Mathf.Cos(incr) * 180f);
+            var incr = (5 - i) * 0.1f;
+            var to = new Vector3(Mathf.Sin(incr) * 180f, 0f, Mathf.Cos(incr) * 180f);
 
-            animIds[go] = LeanTween.move(go, go.transform.position+to, 5f).setOnComplete(() => {
-                bulletPool.giveup(go);
-            }).id;
+            animIds[go] = LeanTween.move(go, go.transform.position + to, 5f)
+                .setOnComplete(() => { bulletPool.giveup(go); }).id;
         }
 
         // Move Ship
-        if(transform.position.x<-20f){
+        if (transform.position.x < -20f)
             shipDirectionX = 1f;
-        }else if (transform.position.x > 20f){
-            shipDirectionX = -1f;
-        }
+        else if (transform.position.x > 20f) shipDirectionX = -1f;
 
         var pos = transform.position;
         pos.x += shipDirectionX * Time.deltaTime * shipSpeed;
         transform.position = pos;
-	}
+    }
 }

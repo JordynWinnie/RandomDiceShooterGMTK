@@ -1,11 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SpeedBuff : Buff
 {
-    private float currentSpeed = 0f;
+    private float currentSpeed;
 
+    public SpeedBuff(Sprite buffSprite, string name) : base(buffSprite, name)
+    {
+    }
 
 
     public override void InitialiseBuff()
@@ -16,15 +17,10 @@ public class SpeedBuff : Buff
 
     public override void UpdateBuff()
     {
-        
     }
 
     public override void CleanUpBuff()
     {
         GameManager.instance._playerMovement.speed = currentSpeed;
-    }
-
-    public SpeedBuff(Sprite buffSprite, string name) : base(buffSprite, name)
-    {
     }
 }

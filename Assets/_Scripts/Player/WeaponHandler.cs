@@ -1,6 +1,4 @@
 using Core;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using WeaponNamespace;
 
@@ -13,9 +11,9 @@ namespace Player
 
         [SerializeField] private int weaponEquipIndex; //Weapon to use
         [SerializeField] private int bulletEquipIndex; //Bullet to use
+        public Weapon weaponScript;
 
         private GameObject weaponObject;
-        public Weapon weaponScript;
 
         private void Start()
         {
@@ -24,18 +22,12 @@ namespace Player
 
         private void Update()
         {
-            if (Input.GetMouseButton(0))
-            {
-                weaponScript.Shoot();
-            }
+            if (Input.GetMouseButton(0)) weaponScript.Shoot();
         }
 
         public void EquipWeapon(int weaponID, int bulletID)
         {
-            for (int i = 0; i < weaponAnchor.childCount; i++)
-            {
-                Destroy(weaponAnchor.GetChild(0).gameObject);
-            }
+            for (var i = 0; i < weaponAnchor.childCount; i++) Destroy(weaponAnchor.GetChild(0).gameObject);
 
             weaponObject = null;
             weaponScript = null;

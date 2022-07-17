@@ -6,13 +6,76 @@
   <component name="ChangeListManager">
     <list default="true" id="62b148f0-5d34-4f9f-97f7-59311448b7c6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.RandomDiceShooterGMTK/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RandomDiceShooterGMTK/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/StartScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/StartScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LeanTween/Editor/LeanTweenDocumentationEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LeanTween/Editor/LeanTweenDocumentationEditor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LeanTween/Framework/LTDescr.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LeanTween/Framework/LTDescr.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LeanTween/Framework/LTDescrOptional.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LeanTween/Framework/LTDescrOptional.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LeanTween/Framework/LTSeq.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LeanTween/Framework/LTSeq.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LeanTween/Framework/LeanAudio.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LeanTween/Framework/LeanAudio.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LeanTween/Framework/LeanSmooth.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LeanTween/Framework/LeanSmooth.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LeanTween/Framework/LeanTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LeanTween/Framework/LeanTest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LeanTween/Framework/LeanTween.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LeanTween/Framework/LeanTween.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LeanTween/Framework/LeanTweenExt.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LeanTween/Framework/LeanTweenExt.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LeanTween/Testing/FollowingTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LeanTween/Testing/FollowingTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LeanTween/Testing/PerformanceTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LeanTween/Testing/PerformanceTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LeanTween/Testing/Scripts/LeanPool.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LeanTween/Testing/Scripts/LeanPool.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LeanTween/Testing/Testing240.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LeanTween/Testing/Testing240.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LeanTween/Testing/Testing243.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LeanTween/Testing/Testing243.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LeanTween/Testing/Testing246.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LeanTween/Testing/Testing246.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LeanTween/Testing/Testing248.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LeanTween/Testing/Testing248.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LeanTween/Testing/TestingColorTweening.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LeanTween/Testing/TestingColorTweening.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LeanTween/Testing/TestingDescr.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LeanTween/Testing/TestingDescr.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LeanTween/Testing/TestingIssue.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LeanTween/Testing/TestingIssue.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LeanTween/Testing/TestingIssue2.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LeanTween/Testing/TestingIssue2.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LeanTween/Testing/TestingMaxTweens.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LeanTween/Testing/TestingMaxTweens.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LeanTween/Testing/TestingOptionalCancel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LeanTween/Testing/TestingOptionalCancel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LeanTween/Testing/TestingRotate.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LeanTween/Testing/TestingRotate.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LeanTween/Testing/TestingSceneSwitching.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LeanTween/Testing/TestingSceneSwitching.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LeanTween/Testing/TestingSequencer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LeanTween/Testing/TestingSequencer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/AudioManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/AudioManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Buffs/BananaBuff.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Buffs/BananaBuff.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Buffs/Buff.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Buffs/Buff.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Buffs/BuffSO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Buffs/BuffSO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Buffs/ExplosiveBuff.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Buffs/ExplosiveBuff.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Buffs/HealthBuff.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Buffs/HealthBuff.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Buffs/HeavyWeightBuff.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Buffs/HeavyWeightBuff.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Buffs/KOBuff.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Buffs/KOBuff.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Buffs/PotatoBuff.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Buffs/PotatoBuff.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Buffs/ScoreMultiplier.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Buffs/ScoreMultiplier.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Buffs/SpeedBuff.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Buffs/SpeedBuff.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Bullet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Bullet.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/CameraRotater.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/CameraRotater.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Enemy/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Enemy/Enemy.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Enemy/GeneralEnemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Enemy/GeneralEnemy.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/IDamageable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/IDamageable.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/LootLocker/LeaderboardManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/LootLocker/LeaderboardManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/LootLocker/LootLockerManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/LootLocker/LootLockerManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Scripts/LootLocker/PlayerManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/LootLocker/PlayerManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/LootLocker/ScoreUploadTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/LootLocker/ScoreUploadTest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Managers/AssetManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Managers/AssetManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Managers/BuffManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Managers/BuffManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Managers/EntitySpawnManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Managers/EntitySpawnManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Managers/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Managers/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Managers/MathHelper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Managers/MathHelper.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Managers/PointShopWaveSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Managers/PointShopWaveSpawner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Managers/PoolManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Managers/PoolManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Managers/SceneController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Managers/SceneController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Player/CameraShake.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Player/CameraShake.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Player/MouseLook.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Player/MouseLook.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/zOthers/Fonts/PressStart2P-Regular SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/zOthers/Fonts/PressStart2P-Regular SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Player/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Player/PlayerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Player/PlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Player/PlayerMovement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Player/WeaponHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Player/WeaponHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/SettingsManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/SettingsManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Weapons/Weapon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Weapons/Weapon.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Weapons/WeaponCatalogueSO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Weapons/WeaponCatalogueSO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/zOthers/CameraShakeFX/Scripts/StressReceiver.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/zOthers/CameraShakeFX/Scripts/StressReceiver.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/zOthers/CameraShakeFX/Scripts/TraumaInducer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/zOthers/CameraShakeFX/Scripts/TraumaInducer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/zOthers/External.asmdef" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/zOthers/External.asmdef" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/zOthers/TextMesh Pro/Shaders/TMPro.cginc" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/zOthers/TextMesh Pro/Shaders/TMPro.cginc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/zOthers/TextMesh Pro/Shaders/TMPro_Mobile.cginc" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/zOthers/TextMesh Pro/Shaders/TMPro_Mobile.cginc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/zOthers/TextMesh Pro/Shaders/TMPro_Properties.cginc" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/zOthers/TextMesh Pro/Shaders/TMPro_Properties.cginc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/zOthers/TextMesh Pro/Shaders/TMPro_Surface.cginc" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/zOthers/TextMesh Pro/Shaders/TMPro_Surface.cginc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/zOthers/TextMesh Pro/Sprites/EmojiOne.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/zOthers/TextMesh Pro/Sprites/EmojiOne.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/SceneTemplateSettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/SceneTemplateSettings.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,8 +85,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/d8d38b92d94a4ff8a91e61d39c6d19cd15d000/d8/6a74fa48/Object.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d44b17e136d09081da1e8fd0e8c83fde60e11818b9f2442d7ed8cb733fae895e/System.Collections.Generic.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/AudioManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/SettingsManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Scripts/AudioManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Scripts/Buffs/BuffSO.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Scripts/Buffs/ExplosiveBuff.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Scripts/Buffs/HealthBuff.cs" root0="FORCE_HIGHLIGHTING" />
@@ -101,7 +163,8 @@
       <workItem from="1657982952226" duration="4078000" />
       <workItem from="1658028959806" duration="4801000" />
       <workItem from="1658039749801" duration="11289000" />
-      <workItem from="1658056701050" duration="12504000" />
+      <workItem from="1658056701050" duration="13280000" />
+      <workItem from="1658074636083" duration="2000" />
     </task>
     <servers />
   </component>

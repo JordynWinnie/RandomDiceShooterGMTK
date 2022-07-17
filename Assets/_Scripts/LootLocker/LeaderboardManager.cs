@@ -1,23 +1,20 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.Events;
 using LootLocker.Requests;
 using TMPro;
+using UnityEngine;
 
 namespace Networking.LookLocker
 {
     public class LeaderboardManager : MonoBehaviour
     {
+        public static LeaderboardManager instance;
         [SerializeField] private TextMeshProUGUI playerNamesTMP;
         [SerializeField] private TextMeshProUGUI scoresTMP;
         [SerializeField] private TextMeshProUGUI loadingTMP;
         [SerializeField] private TMP_InputField usernameTMP;
-        
-        private int leaderboardID = 4774;
-        public static LeaderboardManager instance;
         public bool loadUIless = true;
+
+        private readonly int leaderboardID = 4774;
 
         private void Awake()
         {
@@ -35,8 +32,15 @@ namespace Networking.LookLocker
             }
         }
 
-        public void SubmitScore(int score) => StartCoroutine(SubmitScoreRoutine(score));
-        public void FetchTopScores() => StartCoroutine(FetchTopScoresRoutine());
+        public void SubmitScore(int score)
+        {
+            StartCoroutine(SubmitScoreRoutine(score));
+        }
+
+        public void FetchTopScores()
+        {
+            StartCoroutine(FetchTopScoresRoutine());
+        }
 
         private IEnumerator FetchTopScoresRoutine()
         {
