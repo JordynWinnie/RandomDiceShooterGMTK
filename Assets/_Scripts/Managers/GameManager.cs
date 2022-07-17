@@ -88,7 +88,7 @@ public class GameManager : MonoBehaviour
     {
         _isRolling = true;
         var timesChanged = 10;
-        timerUI.SetText($"Next Roll:\nRolling...");
+        timerUI.SetText($"Next Roll: Rolling...");
         var index = -1;
         while (timesChanged > 0)
         {
@@ -114,7 +114,7 @@ public class GameManager : MonoBehaviour
             return;
         }
         _internalTimer -= Time.deltaTime;
-        timerUI.SetText($"Next Roll:\n{_internalTimer:00}");
+        timerUI.SetText($"Next Roll: {_internalTimer:00}");
     }
 
     private void RandomizerLogic()

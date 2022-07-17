@@ -10,6 +10,7 @@ public class BuffManager : MonoBehaviour
     [SerializeField] private Buff[] Buffs;
     [SerializeField] private List<Buff> currentBuffs;
     [SerializeField] private RectTransform BuffUI;
+    [SerializeField] private Image CurrentBuffUI;
     private TextMeshProUGUI buffText;
     private Buff currentBuff = null;
     // Start is called before the first frame update
@@ -59,6 +60,7 @@ public class BuffManager : MonoBehaviour
         
         
         currentBuff = currentBuffs[index];
+        CurrentBuffUI.sprite = currentBuff.BuffSprite;
         buffText.SetText(currentBuff.name);
         LeanTween.scale(BuffUI, Vector3.one, 1f).setOnComplete(
                 () =>
