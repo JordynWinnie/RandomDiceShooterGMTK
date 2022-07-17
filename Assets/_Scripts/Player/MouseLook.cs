@@ -1,14 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MouseLook : MonoBehaviour
 {
-    
     public Transform playerBody;
 
-    private float xRotation = 0f;
-    
+    private float xRotation;
+
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -16,8 +13,8 @@ public class MouseLook : MonoBehaviour
 
     private void Update()
     {
-        float mouseX = Input.GetAxis("Mouse X") * PlayerManager.sensitivity * Time.deltaTime;
-        float mouseY = Input.GetAxis("Mouse Y") * PlayerManager.sensitivity * Time.deltaTime;
+        var mouseX = Input.GetAxis("Mouse X") * PlayerManager.sensitivity * Time.deltaTime;
+        var mouseY = Input.GetAxis("Mouse Y") * PlayerManager.sensitivity * Time.deltaTime;
 
         xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);

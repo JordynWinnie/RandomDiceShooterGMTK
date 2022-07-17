@@ -1,9 +1,5 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 namespace Scene
 {
@@ -15,6 +11,11 @@ namespace Scene
         public int MainSceneID => MAIN_SCENE;
         public int GameSceneID => GAME_SCENE;
 
+        private void Start()
+        {
+            Application.targetFrameRate = 60;
+        }
+
         public void ChangeScene(int sceneIndex)
         {
             SceneManager.LoadSceneAsync(sceneIndex);
@@ -24,10 +25,5 @@ namespace Scene
         {
             Application.Quit();
         }
-
-        private void Start()
-        {
-            Application.targetFrameRate = 60;
-        }
-    } 
+    }
 }

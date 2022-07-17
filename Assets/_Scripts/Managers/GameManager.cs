@@ -1,45 +1,35 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
+using Core;
+using Networking.LookLocker;
+using Player;
+using Scene;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using Core;
-using Player;
 using WeaponNamespace;
-using Scene;
-using Networking.LookLocker;
-using Random = System.Random;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-    public int _score = 0;
-    private bool _isRolling = false;
-    private float _internalTimer = 0f;
-    private BuffManager _buffManager;
+    public int _score;
     [SerializeField] private int currentRoll = -1;
 
-    [Header("Player")]
-    [SerializeField] private GameObject player;
+    [Header("Player")] [SerializeField] private GameObject player;
+
     [SerializeField] private WeaponCatalogueSO weaponCatalogue;
-    private WeaponHandler weaponHandler;
     public PlayerController _playerController;
     public PlayerMovement _playerMovement;
     public AudioManager _audioManager;
 
-    [Header("Randomizer")]
-    [SerializeField] private float maxRandInterval;
+    [Header("Randomizer")] [SerializeField]
+    private float maxRandInterval;
 
     [SerializeField] private float maxTime;
     [SerializeField] private float minTime;
-    private float _randInterval;
 
-    public float RandomizeInterval => maxRandInterval;
-    public float CurrentRandInterval => _randInterval;
+    [Header("UI")] [SerializeField] private TextMeshProUGUI ScoreUI;
 
-    [Header("UI")]
-    [SerializeField] private TextMeshProUGUI ScoreUI;
     [SerializeField] private TextMeshProUGUI HealthUI;
     [SerializeField] private TextMeshProUGUI intervalUI;
     [SerializeField] private TextMeshProUGUI timerUI;
@@ -47,38 +37,42 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Image RedScreen;
     [SerializeField] private Image diceImage;
 
-    [Header("Components")]
-    [SerializeField] private SceneController sceneController;
+    [Header("Components")] [SerializeField]
+    private SceneController sceneController;
+
     [SerializeField] private LeaderboardManager leaderboardManager;
+    private BuffManager _buffManager;
+    private float _internalTimer;
+    private bool _isRolling;
+    private WeaponHandler weaponHandler;
+
+    public float RandomizeInterval => maxRandInterval;
+    public float CurrentRandInterval { get; private set; }
 
     public GameObject Player => player;
 
     private void Awake()
     {
         if (instance == null)
-        {
             instance = this;
-        }
         else
-        {
             Destroy(gameObject);
-        }
     }
 
     private void Start()
     {
         if (player == null)
-            Debug.LogError($"Player not assigned in the GameManager.", gameObject);
+            Debug.LogError("Player not assigned in the GameManager.", gameObject);
 
         weaponHandler = player.GetComponent<WeaponHandler>();
-        
+
         _playerController = player.GetComponent<PlayerController>();
         _playerMovement = player.GetComponent<PlayerMovement>();
         _audioManager = GetComponent<AudioManager>();
-        
-        _randInterval = maxRandInterval;
+
+        CurrentRandInterval = maxRandInterval;
         _buffManager = GetComponent<BuffManager>();
-        
+
         StartCoroutine(RollDice());
     }
 
@@ -112,19 +106,16 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.M))
-        {
-            AudioListener.volume = AudioListener.volume == 1 ? 0 : 1;
-        }
+        if (Input.GetKeyDown(KeyCode.M)) AudioListener.volume = AudioListener.volume == 1 ? 0 : 1;
         UpdateTimer();
     }
-    
-    IEnumerator RollDice()
+
+    private IEnumerator RollDice()
     {
         _audioManager.PlayDiceAudio();
         _isRolling = true;
         var timesChanged = 10;
-        timerUI.SetText($"Next Roll: Rolling...");
+        timerUI.SetText("Next Roll: Rolling...");
         var index = -1;
         while (timesChanged > 0)
         {
@@ -133,15 +124,22 @@ public class GameManager : MonoBehaviour
             timesChanged -= 1;
         }
 
-        _internalTimer = UnityEngine.Random.Range(minTime, maxTime);
+        _internalTimer = Random.Range(minTime, maxTime);
         currentRoll = index;
         _isRolling = false;
         _buffManager.ChangeBuff(currentRoll);
     }
 
-    public void GunShotSound() => _audioManager.PlayGunAudio(); 
-    public void AbilityChimeSound() => _audioManager.AbilityChimeAudio(); 
-    
+    public void GunShotSound()
+    {
+        _audioManager.PlayGunAudio();
+    }
+
+    public void AbilityChimeSound()
+    {
+        _audioManager.AbilityChimeAudio();
+    }
+
     private void UpdateTimer()
     {
         if (_isRolling) return;
@@ -150,20 +148,22 @@ public class GameManager : MonoBehaviour
             StartCoroutine(RollDice());
             return;
         }
+
         _internalTimer -= Time.deltaTime;
         timerUI.SetText($"Next Roll: {_internalTimer:00}");
     }
 
     private void RandomizerLogic()
     {
-        if (_randInterval <= 0f)
+        if (CurrentRandInterval <= 0f)
         {
-            weaponHandler.EquipWeapon(MathHelper.RandomFromIntZeroTo(weaponCatalogue.WeaponList.Length), MathHelper.RandomFromIntZeroTo(AssetManager.instance.BulletPrefabArray.Length));
-            _randInterval = maxRandInterval;
+            weaponHandler.EquipWeapon(MathHelper.RandomFromIntZeroTo(weaponCatalogue.WeaponList.Length),
+                MathHelper.RandomFromIntZeroTo(AssetManager.instance.BulletPrefabArray.Length));
+            CurrentRandInterval = maxRandInterval;
         }
         else
         {
-            _randInterval -= Time.deltaTime;
+            CurrentRandInterval -= Time.deltaTime;
         }
     }
 
@@ -209,5 +209,4 @@ public class GameManager : MonoBehaviour
     {
         _playerController.AddHealth(health);
     }
-    
 }

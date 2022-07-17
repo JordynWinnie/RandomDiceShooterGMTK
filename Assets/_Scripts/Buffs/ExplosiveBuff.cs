@@ -1,13 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using Player;
 using UnityEngine;
 
 public class ExplosiveBuff : Buff
 {
-    private float currentRange = 0f;
+    private float currentRange;
     private WeaponHandler weaponHandler;
 
+    public ExplosiveBuff(Sprite buffSprite, string name) : base(buffSprite, name)
+    {
+    }
 
 
     public override void InitialiseBuff()
@@ -24,9 +25,5 @@ public class ExplosiveBuff : Buff
     public override void CleanUpBuff()
     {
         weaponHandler.weaponScript.explosionRange = currentRange;
-    }
-
-    public ExplosiveBuff(Sprite buffSprite, string name) : base(buffSprite, name)
-    {
     }
 }

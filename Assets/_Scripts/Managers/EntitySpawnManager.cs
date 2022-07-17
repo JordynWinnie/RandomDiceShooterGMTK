@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Game
@@ -12,14 +10,16 @@ namespace Game
         WaveInterval
     }
 
-    [System.Serializable]
+    [Serializable]
     public class EntitySpawnModifiers
     {
         public SpawnSetting spawnSetting;
         public int toComplete = 2;
         public float amount;
+
         [Tooltip("Check if you want the effects to modify after every spawn instead. Disable to modify after wave.")]
         public bool modifyAfterSpawn;
+
         public Vector2 clampValues;
 
         [HideInInspector] public int counter;
@@ -28,35 +28,37 @@ namespace Game
 
     public class EntitySpawnManager : MonoBehaviour
     {
-        private GameManager gameManager;
+        [Header("Manager Settings")] public Vector2 spawnArea = new(2f, 2f);
 
-        [Header("Manager Settings")]
-        public Vector2 spawnArea = new Vector2(2f, 2f);
         public Transform spawnParent;
 
-        [Tooltip("The spawner will stop spawning when it has reached this limit of entities alive on the field. Set zero to infinite")]
-        public int maxAlive = 0;
+        [Tooltip(
+            "The spawner will stop spawning when it has reached this limit of entities alive on the field. Set zero to infinite")]
+        public int maxAlive;
 
         public LayerMask obstacleLayer;
         public Component[] addOnSpawn;
         [SerializeField] private EntitySpawnModifiers[] spawnModifiers;
-        public event Action<GameObject> onSpawn;
-        public event Action<int> onReachedEntityCap;
+        private GameManager gameManager;
 
         public virtual void Start()
         {
-
         }
+
+        protected void OnDrawGizmos()
+        {
+            Gizmos.DrawWireCube(transform.position, new Vector3(spawnArea.x, 0f, spawnArea.y));
+        }
+
+        public event Action<GameObject> onSpawn;
+        public event Action<int> onReachedEntityCap;
 
         protected GameObject Spawn(GameObject prefab, Vector3 position)
         {
-            GameObject entity = Instantiate(prefab, position, Quaternion.identity, spawnParent);
+            var entity = Instantiate(prefab, position, Quaternion.identity, spawnParent);
             entity.transform.forward = -Vector3.forward;
 
-            for (int i = 0; i < addOnSpawn.Length; i++)
-            {
-                entity.AddComponent(addOnSpawn[i].GetType());
-            }
+            for (var i = 0; i < addOnSpawn.Length; i++) entity.AddComponent(addOnSpawn[i].GetType());
 
             onSpawn?.Invoke(entity);
             return entity;
@@ -67,24 +69,16 @@ namespace Game
             return !Physics.CheckSphere(position, checkRadius, layer);
         }
 
-        protected void OnDrawGizmos()
-        {
-            Gizmos.DrawWireCube(transform.position, new Vector3(spawnArea.x, 0f, spawnArea.y));
-        }
-
         protected bool HasReachedEntityCap()
         {
             if (maxAlive > 0)
             {
-                if (spawnParent.childCount >= maxAlive)
-                {
-                    onReachedEntityCap?.Invoke(maxAlive);
-                }
+                if (spawnParent.childCount >= maxAlive) onReachedEntityCap?.Invoke(maxAlive);
 
                 return spawnParent.childCount >= maxAlive;
             }
 
             return false;
         }
-    } 
+    }
 }

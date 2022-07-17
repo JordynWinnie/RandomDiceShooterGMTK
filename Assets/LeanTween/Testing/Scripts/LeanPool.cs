@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 /**
@@ -23,9 +22,9 @@ namespace DentedPixel
             if (retrieveOldestItems)
                 oldestItems = new Queue<GameObject>();
 
-            for (int i = 0; i < array.Length; i++)
+            for (var i = 0; i < array.Length; i++)
             {
-                GameObject go = GameObject.Instantiate(prefab, parent);
+                var go = Object.Instantiate(prefab, parent);
                 go.SetActive(false);
 
                 array[i] = go;
@@ -34,7 +33,8 @@ namespace DentedPixel
             return array;
         }
 
-        public void init(GameObject[] array, bool retrieveOldestItems = true){
+        public void init(GameObject[] array, bool retrieveOldestItems = true)
+        {
             this.array = array;
 
             if (retrieveOldestItems)
@@ -49,7 +49,7 @@ namespace DentedPixel
 
         public GameObject retrieve()
         {
-            for (int i = 0; i < array.Length; i++)
+            for (var i = 0; i < array.Length; i++)
             {
                 retrieveIndex++;
                 if (retrieveIndex >= array.Length)
@@ -57,13 +57,10 @@ namespace DentedPixel
 
                 if (array[retrieveIndex].activeSelf == false)
                 {
-                    GameObject returnObj = array[retrieveIndex];
+                    var returnObj = array[retrieveIndex];
                     returnObj.SetActive(true);
 
-                    if (oldestItems != null)
-                    {
-                        oldestItems.Enqueue(returnObj);
-                    }
+                    if (oldestItems != null) oldestItems.Enqueue(returnObj);
 
                     return returnObj;
                 }
@@ -71,8 +68,8 @@ namespace DentedPixel
 
             if (oldestItems != null)
             {
-                GameObject go = oldestItems.Dequeue();
-                oldestItems.Enqueue(go);// put at the end of the queue again
+                var go = oldestItems.Dequeue();
+                oldestItems.Enqueue(go); // put at the end of the queue again
 
                 return go;
             }
@@ -80,5 +77,4 @@ namespace DentedPixel
             return null;
         }
     }
-
 }

@@ -1,6 +1,4 @@
-using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics.Contracts;
 using UnityEngine;
 
 public class AudioManager : MonoBehaviour
@@ -13,15 +11,23 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioClip errorPurchaseSound;
     private AudioSource _audioSource;
 
-    private List<AudioSource> _SFX = new();
+    private readonly List<AudioSource> _SFX = new();
+
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         _audioSource = GetComponent<AudioSource>();
         _audioSource.clip = MathHelper.RandomFromArray(BGM);
-        for (int i = 0; i < 8; i++)
+        for (var i = 0; i < 8; i++) _SFX.Add(gameObject.AddComponent<AudioSource>());
+    }
+
+    // Update is called once per frame
+    private void Update()
+    {
+        if (!_audioSource.isPlaying)
         {
-            _SFX.Add(gameObject.AddComponent<AudioSource>());
+            _audioSource.clip = MathHelper.RandomFromArray(BGM);
+            _audioSource.Play();
         }
     }
 
@@ -39,21 +45,20 @@ public class AudioManager : MonoBehaviour
     {
         PlayAudio(abilityChime, 0.2f, Random.Range(0.8f, 1.1f));
     }
-    
+
     public void PlayPurchaseSound()
     {
         PlayAudio(purchasedSound, 0.1f);
     }
-    
+
     public void PlayErrorSound()
     {
         PlayAudio(errorPurchaseSound, 0.5f);
     }
 
-    void PlayAudio(AudioClip clip, float volume = 1f, float pitch = 1f)
+    private void PlayAudio(AudioClip clip, float volume = 1f, float pitch = 1f)
     {
-        for (int i = 0; i < _SFX.Count; i++)
-        {
+        for (var i = 0; i < _SFX.Count; i++)
             if (!_SFX[i].isPlaying)
             {
                 _SFX[i].clip = clip;
@@ -62,7 +67,6 @@ public class AudioManager : MonoBehaviour
                 _SFX[i].Play();
                 return;
             }
-        }
 
         var newAudio = gameObject.AddComponent<AudioSource>();
         newAudio.clip = clip;
@@ -70,14 +74,5 @@ public class AudioManager : MonoBehaviour
         newAudio.pitch = pitch;
         newAudio.Play();
         _SFX.Add(newAudio);
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        if (!_audioSource.isPlaying)
-        {
-            _audioSource.clip = MathHelper.RandomFromArray(BGM);
-            _audioSource.Play();
-        }
     }
 }

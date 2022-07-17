@@ -1,15 +1,14 @@
-using System.Reflection;
 using UnityEngine;
 using UnityEngine.AI;
 
 public abstract class Enemy : MonoBehaviour, IDamageable
 {
-    protected Transform playerLocation;
-    private NavMeshAgent _agent;
-    protected TraumaInducer _traumaInducer;
     [SerializeField] protected float health = 10f;
     [SerializeField] protected float damageDealt = 5f;
     [SerializeField] protected int score = 10;
+    private NavMeshAgent _agent;
+    protected TraumaInducer _traumaInducer;
+    protected Transform playerLocation;
 
     // Start is called before the first frame update
     protected virtual void Start()
@@ -26,11 +25,6 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         DealDamage();
     }
 
-    protected virtual void DealDamage()
-    {
-        
-    }
-
     public virtual void TakeDamage(float damage)
     {
         health -= damage;
@@ -38,6 +32,10 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         if (!(health <= 0)) return;
         GameManager.instance.AddScore(score);
         Death();
+    }
+
+    protected virtual void DealDamage()
+    {
     }
 
     public virtual void Death()

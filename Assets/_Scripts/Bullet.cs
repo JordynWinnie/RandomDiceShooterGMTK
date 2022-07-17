@@ -1,6 +1,4 @@
 using Core;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Projectiles
@@ -16,12 +14,20 @@ namespace Projectiles
         [HideInInspector] public float lifeTime = 1f;
         [HideInInspector] public float explosionRange;
         [HideInInspector] public float explosionFalloffPercentage;
+        [SerializeField] private Rigidbody rb;
 
         private float _damage;
         private float _lifetime;
-        [SerializeField] private Rigidbody rb;
 
         public int BulletID => bulletID;
+
+        private void Update()
+        {
+            if (_lifetime <= 0f)
+                DestroyProjectile();
+            else
+                _lifetime -= Time.deltaTime;
+        }
 
         private void OnEnable()
         {
@@ -31,32 +37,20 @@ namespace Projectiles
             _damage = damage * damageMultiplier;
         }
 
-        private void Update()
-        {
-            if (_lifetime <= 0f)
-            {
-                DestroyProjectile();
-            }
-            else
-            {
-                _lifetime -= Time.deltaTime;
-            }
-        }
-
         private void OnCollisionEnter(Collision collision)
         {
             if (explosionRange > 0f)
             {
-                
-                Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRange, enemyLayer);
-                foreach (Collider collider in colliders)
+                var colliders = Physics.OverlapSphere(transform.position, explosionRange, enemyLayer);
+                foreach (var collider in colliders)
                 {
-                    float distPercentage = (100 - explosionFalloffPercentage) / explosionRange * Vector3.Distance(transform.position, collider.transform.position);
-                    float dmgPercentage = _damage / 100 * (100 - distPercentage);
+                    var distPercentage = (100 - explosionFalloffPercentage) / explosionRange *
+                                         Vector3.Distance(transform.position, collider.transform.position);
+                    var dmgPercentage = _damage / 100 * (100 - distPercentage);
                     DamageComponent(collider.gameObject, dmgPercentage);
                 }
-                
-                GameObject explosionParticle = 
+
+                var explosionParticle =
                     Instantiate(AssetManager.instance.ExplosionParticle, transform.position, Quaternion.identity);
                 Destroy(explosionParticle, 3f);
                 DestroyProjectile();
@@ -80,7 +74,6 @@ namespace Projectiles
 
         public virtual void CreateExplosion()
         {
-
         }
     }
 }

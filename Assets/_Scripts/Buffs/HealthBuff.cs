@@ -1,12 +1,11 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Reflection;
 using UnityEngine;
 
 public class HealthBuff : Buff
 {
-    
+    public HealthBuff(Sprite buffSprite, string name) : base(buffSprite, name)
+    {
+    }
+
     public override void InitialiseBuff()
     {
         Debug.Log("Initialized Buff");
@@ -20,10 +19,5 @@ public class HealthBuff : Buff
     public override void CleanUpBuff()
     {
         Debug.Log("Cleanup Buff");
-    }
-
-
-    public HealthBuff(Sprite buffSprite, string name) : base(buffSprite, name)
-    {
     }
 }

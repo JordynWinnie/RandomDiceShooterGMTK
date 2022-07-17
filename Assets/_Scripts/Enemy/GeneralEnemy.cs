@@ -1,12 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GeneralEnemy : Enemy
 {
-    protected float attackRange = 2f;
-    protected float attackCoolDown = 2f;
     private float _attackCoolDown;
+    protected float attackCoolDown = 2f;
+    protected float attackRange = 2f;
 
     protected override void Start()
     {
@@ -18,7 +16,7 @@ public class GeneralEnemy : Enemy
     {
         base.DealDamage();
         _attackCoolDown -= Time.deltaTime;
-       
+
         if (_attackCoolDown > 0) return;
 
         if (Vector3.Distance(playerLocation.transform.position, transform.position) < attackRange)

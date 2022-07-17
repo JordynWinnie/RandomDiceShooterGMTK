@@ -1,30 +1,11 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
 namespace Game
 {
     public class PointShopWaveSpawner : EntitySpawnManager
     {
-        [Serializable]
-        public class SpawnItem
-        {
-            public GameObject item;
-            public int cost;
-            public int spawnAfterWave;
-
-            [Tooltip("Determines how many waves between this entity's spawns. 0 = every wave, 1 = alternate...")]
-            public int waveCooldown;
-            private int _waveCD;
-
-            public bool isWaveCDDone { get => _waveCD >= waveCooldown; }
-            public void IncrementCD() => _waveCD++;
-            public void ResetWaveCD() => _waveCD = 0;
-            public void InitializeCD() => _waveCD = waveCooldown;
-        }
-
         public enum PointSpawnerState
         {
             Stopped,
@@ -35,48 +16,47 @@ namespace Game
             MaxCapWait
         }
 
-        [Header("Point Shop Variables")]
-        [SerializeField] private int maxPoints = 3;
+        [Header("Point Shop Variables")] [SerializeField]
+        private int maxPoints = 3;
+
         [SerializeField] private int incrementPoint = 1;
 
-        [Header("Spawn Settings")]
-        [SerializeField] private float startDelay = 1f;
+        [Header("Spawn Settings")] [SerializeField]
+        private float startDelay = 1f;
+
         [SerializeField] private float spawnInterval = 1f;
         [SerializeField] private float waveInterval = 5f;
         [SerializeField] private float waveIntervalIncrement = 0.5f;
         [SerializeField] private float waitInterval = 3f;
         [SerializeField] private float waitIntervalIncrement = 1f;
-        [Space(15)]
-        [SerializeField] private float checkRadius = 0.45f;
-        [SerializeField] private PointSpawnerState spawnerState;
 
-        private float _spawnInterval;
-        private float _waveInterval;
-        private float _waitInterval;
-        private int toSpawnIndex;
-        private int waveCount;
+        [Space(15)] [SerializeField] private float checkRadius = 0.45f;
+
+        [SerializeField] private PointSpawnerState spawnerState;
 
         public SpawnItem[] spawnItems;
 
-        //Entity and their cost
-        private Dictionary<GameObject, int> entityMenu = new Dictionary<GameObject, int>();
-
-        //Copy of all entity gameobjects
-        private List<GameObject> possibleEntities = new List<GameObject>();
+        private float _spawnInterval;
+        private float _waitInterval;
 
         private GameObject[] entitiesToSpawn;
 
-        public event Action onWaveStarted;
-        public event Action onWaveStarting;
+        //Entity and their cost
+        private readonly Dictionary<GameObject, int> entityMenu = new();
 
-        public float CurrentWaveInterval { get => _waveInterval; }
-        public int TotalWaves { get => waveCount; }
+        //Copy of all entity gameobjects
+        private readonly List<GameObject> possibleEntities = new();
+        private int toSpawnIndex;
+
+        public float CurrentWaveInterval { get; private set; }
+
+        public int TotalWaves { get; private set; }
 
         private void Start()
         {
             possibleEntities.Clear();
             entityMenu.Clear();
-            for (int i = 0; i < spawnItems.Length; i++)
+            for (var i = 0; i < spawnItems.Length; i++)
             {
                 possibleEntities.Add(spawnItems[i].item);
                 entityMenu.Add(spawnItems[i].item, spawnItems[i].cost);
@@ -91,6 +71,14 @@ namespace Game
             UpdateState(spawnerState);
         }
 
+        private void OnDrawGizmosSelected()
+        {
+            Gizmos.DrawWireCube(transform.position, Vector3.one);
+        }
+
+        public event Action onWaveStarted;
+        public event Action onWaveStarting;
+
         //Runs once when switching state
         private void EnterState(PointSpawnerState state)
         {
@@ -99,29 +87,24 @@ namespace Game
                 case PointSpawnerState.Stopped:
                     break;
                 case PointSpawnerState.StartDelay:
-                    _waveInterval = startDelay;
+                    CurrentWaveInterval = startDelay;
                     break;
                 case PointSpawnerState.WaveDelay:
                     onWaveStarting?.Invoke();
-                    _waveInterval = waveInterval;
+                    CurrentWaveInterval = waveInterval;
                     waveInterval += waveIntervalIncrement;
                     toSpawnIndex = 0;
 
                     entitiesToSpawn = GetListOfEntities();
                     break;
                 case PointSpawnerState.Spawning:
-                    waveCount++;
-                    for (int i = 0; i < spawnItems.Length; i++)
-                    {
-                        spawnItems[i].IncrementCD();
-                    }
+                    TotalWaves++;
+                    for (var i = 0; i < spawnItems.Length; i++) spawnItems[i].IncrementCD();
                     break;
                 case PointSpawnerState.SpawnWait:
                     _waitInterval = waitInterval;
                     break;
                 case PointSpawnerState.MaxCapWait:
-                    break;
-                default:
                     break;
             }
 
@@ -136,31 +119,33 @@ namespace Game
                 case PointSpawnerState.Stopped:
                     break;
                 case PointSpawnerState.StartDelay:
-                    if (_waveInterval <= 0f)
+                    if (CurrentWaveInterval <= 0f)
                     {
                         SwitchState(PointSpawnerState.WaveDelay);
-                        _waveInterval = waveInterval;
+                        CurrentWaveInterval = waveInterval;
                     }
                     else
                     {
-                        _waveInterval -= Time.deltaTime;
+                        CurrentWaveInterval -= Time.deltaTime;
                     }
+
                     break;
                 case PointSpawnerState.WaveDelay:
-                    if (_waveInterval <= 0f)
+                    if (CurrentWaveInterval <= 0f)
                     {
                         SwitchState(PointSpawnerState.Spawning);
-                        _waveInterval = waveInterval;
+                        CurrentWaveInterval = waveInterval;
                     }
                     else
                     {
-                        _waveInterval -= Time.deltaTime;
+                        CurrentWaveInterval -= Time.deltaTime;
                     }
+
                     break;
                 case PointSpawnerState.Spawning:
                     if (_spawnInterval <= 0f)
                     {
-                        GameObject entity = SpawnEntity(entitiesToSpawn[toSpawnIndex]);
+                        var entity = SpawnEntity(entitiesToSpawn[toSpawnIndex]);
                         toSpawnIndex++;
                         _spawnInterval = spawnInterval;
 
@@ -175,11 +160,7 @@ namespace Game
                         _spawnInterval -= Time.deltaTime;
                     }
 
-                    if (spawnParent.childCount >= maxAlive)
-                    {
-                        SwitchState(PointSpawnerState.MaxCapWait);
-                        break;
-                    }
+                    if (spawnParent.childCount >= maxAlive) SwitchState(PointSpawnerState.MaxCapWait);
                     break;
                 case PointSpawnerState.SpawnWait:
 
@@ -190,21 +171,14 @@ namespace Game
                     else
                     {
                         //Check if map is empty, do early spawn
-                        if (spawnParent.childCount == 0)
-                        {
-                            _waitInterval = 0f;
-                        }
+                        if (spawnParent.childCount == 0) _waitInterval = 0f;
 
                         _waitInterval -= Time.deltaTime;
                     }
+
                     break;
                 case PointSpawnerState.MaxCapWait:
-                    if (spawnParent.childCount < maxAlive)
-                    {
-                        SwitchState(PointSpawnerState.Spawning);
-                    }
-                    break;
-                default:
+                    if (spawnParent.childCount < maxAlive) SwitchState(PointSpawnerState.Spawning);
                     break;
             }
         }
@@ -229,8 +203,6 @@ namespace Game
                     break;
                 case PointSpawnerState.MaxCapWait:
                     break;
-                default:
-                    break;
             }
         }
 
@@ -244,14 +216,14 @@ namespace Game
 
         private GameObject[] GetListOfEntities()
         {
-            int attempts = 100;
-            int pointsToSpend = maxPoints;
-            List<GameObject> potentialEntites = new List<GameObject>(possibleEntities);
-            List<GameObject> confirmedEntities = new List<GameObject>();
+            var attempts = 100;
+            var pointsToSpend = maxPoints;
+            var potentialEntites = new List<GameObject>(possibleEntities);
+            var confirmedEntities = new List<GameObject>();
 
             while (pointsToSpend > 0 && attempts > 0)
             {
-                GameObject selectedEntity = MathHelper.RandomFromArray(potentialEntites.ToArray(), out int index);
+                var selectedEntity = MathHelper.RandomFromArray(potentialEntites.ToArray(), out var index);
 
                 if (CanSelectEntity(index))
                 {
@@ -273,33 +245,29 @@ namespace Game
 
                 attempts--;
             }
+
             return confirmedEntities.ToArray();
         }
 
         private bool CanSelectEntity(int index)
         {
-            if (spawnItems[index].spawnAfterWave <= waveCount)
-            {
+            if (spawnItems[index].spawnAfterWave <= TotalWaves)
                 if (spawnItems[index].isWaveCDDone)
                 {
                     spawnItems[index].ResetWaveCD();
                     return true;
                 }
-            }
 
             return false;
         }
 
         private GameObject SpawnEntity(GameObject entity)
         {
-            int attempts = 50;
+            var attempts = 50;
             while (attempts > 0)
             {
-                Vector3 spawnLoc = transform.position + MathHelper.InArea(new Vector3(spawnArea.x, 0f, spawnArea.y));
-                if (CheckSpawnValid(spawnLoc, obstacleLayer, checkRadius))
-                {
-                    return Spawn(entity, spawnLoc);
-                }
+                var spawnLoc = transform.position + MathHelper.InArea(new Vector3(spawnArea.x, 0f, spawnArea.y));
+                if (CheckSpawnValid(spawnLoc, obstacleLayer, checkRadius)) return Spawn(entity, spawnLoc);
 
                 attempts--;
             }
@@ -309,9 +277,34 @@ namespace Game
             return null;
         }
 
-        private void OnDrawGizmosSelected()
+        [Serializable]
+        public class SpawnItem
         {
-            Gizmos.DrawWireCube(transform.position, Vector3.one);
+            public GameObject item;
+            public int cost;
+            public int spawnAfterWave;
+
+            [Tooltip("Determines how many waves between this entity's spawns. 0 = every wave, 1 = alternate...")]
+            public int waveCooldown;
+
+            private int _waveCD;
+
+            public bool isWaveCDDone => _waveCD >= waveCooldown;
+
+            public void IncrementCD()
+            {
+                _waveCD++;
+            }
+
+            public void ResetWaveCD()
+            {
+                _waveCD = 0;
+            }
+
+            public void InitializeCD()
+            {
+                _waveCD = waveCooldown;
+            }
         }
-    } 
+    }
 }

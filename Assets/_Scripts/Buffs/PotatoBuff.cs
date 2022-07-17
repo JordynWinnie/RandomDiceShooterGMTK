@@ -1,13 +1,15 @@
-﻿using UnityEngine;
-using WeaponNamespace;
-using Player;
-using Core;
+﻿using Player;
+using UnityEngine;
 
 namespace Projectiles.Buffs
 {
     public class PotatoBuff : Buff
     {
-        WeaponHandler weaponHandler;        
+        private WeaponHandler weaponHandler;
+
+        public PotatoBuff(Sprite buffSprite, string name) : base(buffSprite, name)
+        {
+        }
 
 
         public override void InitialiseBuff()
@@ -18,16 +20,11 @@ namespace Projectiles.Buffs
 
         public override void UpdateBuff()
         {
-            
         }
 
         public override void CleanUpBuff()
         {
             weaponHandler.SetProjectile(0);
-        }
-
-        public PotatoBuff(Sprite buffSprite, string name) : base(buffSprite, name)
-        {
         }
     }
 }

@@ -1,23 +1,20 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.Events;
 using LootLocker.Requests;
 using TMPro;
+using UnityEngine;
 
 namespace Networking.LookLocker
 {
     public class LeaderboardManager : MonoBehaviour
     {
+        public static LeaderboardManager instance;
         [SerializeField] private TextMeshProUGUI playerNamesTMP;
         [SerializeField] private TextMeshProUGUI scoresTMP;
         [SerializeField] private TextMeshProUGUI loadingTMP;
         [SerializeField] private TMP_InputField usernameTMP;
-        
-        private int leaderboardID = 4774;
-        public static LeaderboardManager instance;
         public bool loadUIless = true;
+
+        private readonly int leaderboardID = 4774;
 
         private void Awake()
         {
@@ -35,29 +32,33 @@ namespace Networking.LookLocker
             }
         }
 
-        public void SubmitScore(int score) => StartCoroutine(SubmitScoreRoutine(score));
-        public void FetchTopScores() => StartCoroutine(FetchTopScoresRoutine());
+        public void SubmitScore(int score)
+        {
+            StartCoroutine(SubmitScoreRoutine(score));
+        }
+
+        public void FetchTopScores()
+        {
+            StartCoroutine(FetchTopScoresRoutine());
+        }
 
         private IEnumerator FetchTopScoresRoutine()
         {
-            if (!PlayerManager.isLoggedIn)
-            {
-                yield return null;
-            }
+            if (!PlayerManager.isLoggedIn) yield return null;
 
-            bool done = false;
-            LootLockerSDKManager.GetScoreList(leaderboardID, 10, 0, (res) => 
+            var done = false;
+            LootLockerSDKManager.GetScoreList(leaderboardID, 10, 0, res =>
             {
                 if (res.success)
                 {
-                    string tmpNames = "Names\n";
-                    string tmpScores = "Scores\n";
+                    var tmpNames = "Names\n";
+                    var tmpScores = "Scores\n";
 
-                    LootLockerLeaderboardMember[] members = res.items;
+                    var members = res.items;
 
-                    for (int i = 0; i < members.Length; i++)
+                    for (var i = 0; i < members.Length; i++)
                     {
-                        tmpNames += (i + 1).ToString() + ". ";
+                        tmpNames += i + 1 + ". ";
                         tmpNames += members[i].player.name == "" ? members[i].player.id : members[i].player.name;
                         tmpScores += members[i].score + "\n";
                         tmpNames += "\n";
@@ -78,23 +79,17 @@ namespace Networking.LookLocker
 
         private IEnumerator SubmitScoreRoutine(int score)
         {
-            if (!PlayerManager.isLoggedIn)
-            {
-                yield return null;
-            }
+            if (!PlayerManager.isLoggedIn) yield return null;
 
 
-            bool done = false;
-            string playerID = PlayerPrefs.GetString("PlayerID");
-            LootLockerSDKManager.SubmitScore(playerID, score, leaderboardID, (res) =>
+            var done = false;
+            var playerID = PlayerPrefs.GetString("PlayerID");
+            LootLockerSDKManager.SubmitScore(playerID, score, leaderboardID, res =>
             {
                 if (res.success)
-                {
                     Debug.Log("Score Submitted");
-                } else
-                {
+                else
                     Debug.Log("Unable to submit score");
-                }
             });
 
             yield return new WaitWhile(() => done == false);
@@ -102,18 +97,12 @@ namespace Networking.LookLocker
 
         public void SetUsername(string username)
         {
-            if (!PlayerManager.isLoggedIn)
-            {
-                return;
-            }
+            if (!PlayerManager.isLoggedIn) return;
 
 
-            LootLockerSDKManager.SetPlayerName(username, (res) =>
+            LootLockerSDKManager.SetPlayerName(username, res =>
             {
-                if (res.success)
-                {
-                    Debug.Log("Updated username");
-                }
+                if (res.success) Debug.Log("Updated username");
             });
         }
     }
