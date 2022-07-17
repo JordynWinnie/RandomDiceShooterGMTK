@@ -8,9 +8,7 @@ public class ExplosiveBuff : Buff
     private float currentRange = 0f;
     private WeaponHandler weaponHandler;
 
-    public ExplosiveBuff(Sprite buffSprite) : base(buffSprite)
-    {
-    }
+
 
     public override void InitialiseBuff()
     {
@@ -26,5 +24,9 @@ public class ExplosiveBuff : Buff
     public override void CleanUpBuff()
     {
         weaponHandler.weaponScript.explosionRange = currentRange;
+    }
+
+    public ExplosiveBuff(Sprite buffSprite, string name) : base(buffSprite, name)
+    {
     }
 }

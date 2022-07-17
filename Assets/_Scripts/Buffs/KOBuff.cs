@@ -6,9 +6,6 @@ public class KOBuff : Buff
 {
     private float currentHealth = 0f;
     private bool gameOver = false;
-    public KOBuff(Sprite buffSprite) : base(buffSprite)
-    {
-    }
 
     public override void InitialiseBuff()
     {
@@ -29,5 +26,9 @@ public class KOBuff : Buff
     public override void CleanUpBuff()
     {
         
+    }
+
+    public KOBuff(Sprite buffSprite, string name) : base(buffSprite, name)
+    {
     }
 }

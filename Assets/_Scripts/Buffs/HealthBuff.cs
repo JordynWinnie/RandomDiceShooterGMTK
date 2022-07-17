@@ -22,7 +22,8 @@ public class HealthBuff : Buff
         Debug.Log("Cleanup Buff");
     }
 
-    public HealthBuff(Sprite buffSprite) : base(buffSprite)
+
+    public HealthBuff(Sprite buffSprite, string name) : base(buffSprite, name)
     {
     }
 }

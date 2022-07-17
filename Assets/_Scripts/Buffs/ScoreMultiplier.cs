@@ -5,9 +5,6 @@ namespace Projectiles.Buffs
     public class ScoreMultiplier : Buff
     {
         private int currentScore = 0;
-        public ScoreMultiplier(Sprite buffSprite) : base(buffSprite)
-        {
-        }
 
         public override void InitialiseBuff()
         {
@@ -27,6 +24,10 @@ namespace Projectiles.Buffs
         public override void CleanUpBuff()
         {
             
+        }
+
+        public ScoreMultiplier(Sprite buffSprite, string name) : base(buffSprite, name)
+        {
         }
     }
 }
