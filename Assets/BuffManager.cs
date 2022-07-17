@@ -17,15 +17,16 @@ public class BuffManager : MonoBehaviour
     {
         Buffs = new Buff[]
         {
-            new HealthBuff(Resources.Load<Sprite>("heart_sprite"))
+            new HealthBuff(Resources.Load<Sprite>("heart_sprite")),
+            new SpeedBuff(Resources.Load<Sprite>("speed")),
         };
         currentBuffs = new[] {
             Buffs[0],
-            Buffs[0],
-            Buffs[0],
-            Buffs[0],
-            Buffs[0],
-            Buffs[0]
+            Buffs[1],
+            Buffs[1],
+            Buffs[1],
+            Buffs[1],
+            Buffs[1]
         };
         UpdateBuffUI();
     }

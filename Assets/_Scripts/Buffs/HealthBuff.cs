@@ -15,7 +15,6 @@ public class HealthBuff : Buff
 
     public override void UpdateBuff()
     {
-        Debug.Log("Updating Buff");
     }
 
     public override void CleanUpBuff()
