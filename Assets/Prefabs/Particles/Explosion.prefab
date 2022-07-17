@@ -174,8 +174,8 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 7.5
-      minScalar: 2.5
+      scalar: 15
+      minScalar: 5
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -4993,8 +4993,8 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.375
-      minScalar: 0.125
+      scalar: 0.75
+      minScalar: 0.25
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -5046,8 +5046,8 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 5
-      minScalar: 2.5
+      scalar: 10
+      minScalar: 5
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -9865,8 +9865,8 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.375
-      minScalar: 0.125
+      scalar: 0.5
+      minScalar: 0.25
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -9918,8 +9918,8 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 25
-      minScalar: 15
+      scalar: 50
+      minScalar: 30
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -10358,7 +10358,7 @@ ParticleSystem:
     gravityModifier:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 1
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -10411,7 +10411,7 @@ ParticleSystem:
   ShapeModule:
     serializedVersion: 6
     enabled: 1
-    type: 2
+    type: 0
     angle: 25
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
@@ -10727,7 +10727,7 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 20
+        scalar: 40
         minScalar: 30
         maxCurve:
           serializedVersion: 2
@@ -14728,7 +14728,7 @@ ParticleSystem:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  moveWithTransform: 0
+  moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
   randomSeed: 0
@@ -19443,7 +19443,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3cd67ab426308c24998275e7f05347b7, type: 2}
+  - {fileID: 2100000, guid: 853075e08f8923f4e87ca7b71a21bd65, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -19663,8 +19663,8 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 7.5
-      minScalar: 2.5
+      scalar: 15
+      minScalar: 5
       maxCurve:
         serializedVersion: 2
         m_Curve:
