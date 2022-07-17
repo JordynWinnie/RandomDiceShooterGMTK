@@ -111,6 +111,11 @@ public class GameManager : MonoBehaviour
                 _audioManager.PlayErrorSound();
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            AudioListener.volume = AudioListener.volume == 1 ? 0 : 1;
+        }
         UpdateTimer();
     }
     
