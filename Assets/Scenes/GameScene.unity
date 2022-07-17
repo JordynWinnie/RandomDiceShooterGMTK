@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.000064787346, g: 0.00014024801, b: 0.0042892084,
+  m_IndirectSpecularColor: {r: 0.000055046083, g: 0.00014094963, b: 0.0042733354,
     a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
@@ -880,7 +880,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5052e0d0fade5f64eafd468b158915ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitivity: 200
   playerBody: {fileID: 2066539529}
 --- !u!114 &330585549
 MonoBehaviour:
@@ -8600,7 +8599,7 @@ MonoBehaviour:
   _playerMovement: {fileID: 0}
   _audioManager: {fileID: 0}
   maxRandInterval: 10
-  maxTime: 120
+  maxTime: 60
   minTime: 30
   ScoreUI: {fileID: 1637942583}
   HealthUI: {fileID: 1549582236}
