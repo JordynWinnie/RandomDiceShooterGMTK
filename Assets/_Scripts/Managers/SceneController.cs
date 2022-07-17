@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -21,6 +22,11 @@ namespace Scene
         public void QuitApplication()
         {
             Application.Quit();
+        }
+
+        private void Start()
+        {
+            Application.targetFrameRate = 60;
         }
     } 
 }

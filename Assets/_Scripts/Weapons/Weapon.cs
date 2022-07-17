@@ -44,6 +44,7 @@ namespace WeaponNamespace
         {
             if (_shootInterval < 0)
             {
+                GameManager.instance.GunShotSound();
                 PoolManager.instance.PullFromPool(bullet, projectile =>
                 {
                     projectile.transform.SetPositionAndRotation(shootAnchor.position, shootAnchor.rotation);
