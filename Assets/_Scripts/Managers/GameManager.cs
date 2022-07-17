@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject player;
     [SerializeField] private WeaponCatalogueSO weaponCatalogue;
     private WeaponHandler weaponHandler;
+    private PlayerController _playerController;
 
     [Header("Randomizer")]
     [SerializeField] private float maxRandInterval;
@@ -59,6 +60,7 @@ public class GameManager : MonoBehaviour
             Debug.LogError($"Player not assigned in the GameManager.", gameObject);
 
         weaponHandler = player.GetComponent<WeaponHandler>();
+        _playerController = player.GetComponent<PlayerController>();
         _randInterval = maxRandInterval;
         StartCoroutine(RollDice());
     }
@@ -149,4 +151,6 @@ public class GameManager : MonoBehaviour
     {
         ScoreUI.SetText($"Score: {_score:00000000}");
     }
+
+    public void AddHealth(float health) => _playerController.AddHealth(health);
 }
