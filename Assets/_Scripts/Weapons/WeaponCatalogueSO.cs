@@ -8,6 +8,7 @@ namespace WeaponNamespace
     public class WeaponCatalogueSO : ScriptableObject
     {
         [SerializeField] private GameObject[] weaponList;
+        public GameObject[] WeaponList => weaponList;
 
         public GameObject GetWeapon(int weaponID)
         {

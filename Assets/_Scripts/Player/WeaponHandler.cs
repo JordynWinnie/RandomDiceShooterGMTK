@@ -1,3 +1,4 @@
+using Core;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,12 +11,15 @@ namespace Player
         [SerializeField] private Transform weaponAnchor;
         [SerializeField] private WeaponCatalogueSO weaponCatalogue;
 
+        [SerializeField] private int weaponEquipIndex; //Weapon to use
+        [SerializeField] private int bulletEquipIndex; //Bullet to use
+
         private GameObject weaponObject;
         private Weapon weaponScript;
 
         private void Start()
         {
-            EquipWeapon(0);
+            EquipWeapon(weaponEquipIndex, bulletEquipIndex);
         }
 
         private void Update()
@@ -26,11 +30,11 @@ namespace Player
             }
         }
 
-        public void EquipWeapon(int weaponID)
+        public void EquipWeapon(int weaponID, int bulletID)
         {
             for (int i = 0; i < weaponAnchor.childCount; i++)
             {
-                Destroy(weaponAnchor.GetChild(0));
+                Destroy(weaponAnchor.GetChild(0).gameObject);
             }
 
             weaponObject = null;
@@ -38,6 +42,8 @@ namespace Player
 
             weaponObject = Instantiate(weaponCatalogue.GetWeapon(weaponID), weaponAnchor);
             weaponScript = weaponObject.GetComponent<Weapon>();
+
+            weaponScript.bullet = AssetManager.instance.GetBulletPrefab(bulletID);
         }
     }
 }
