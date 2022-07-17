@@ -9,7 +9,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     protected TraumaInducer _traumaInducer;
     [SerializeField] protected float health = 10f;
     [SerializeField] protected float damageDealt = 5f;
-    [SerializeField] protected float score = 10f;
+    [SerializeField] protected int score = 10;
 
     // Start is called before the first frame update
     protected virtual void Start()
