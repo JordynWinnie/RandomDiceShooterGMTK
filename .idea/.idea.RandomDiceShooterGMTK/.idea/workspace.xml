@@ -5,8 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="62b148f0-5d34-4f9f-97f7-59311448b7c6" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.RandomDiceShooterGMTK/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RandomDiceShooterGMTK/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Imports/Models/Guns/RocketLauncher/Materials/RocketLauncherScreen.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Imports/Models/Guns/RocketLauncher/Materials/RocketLauncherScreen.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TestingScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TestingScene.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,7 +13,9 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d44b17e136d09081da1e8fd0e8c83fde60e11818b9f2442d7ed8cb733fae895e/System.Collections.Generic.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/CameraShakeFX/Scripts/TraumaInducer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Scripts/Buff.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Scripts/Player/PlayerController.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -80,7 +81,7 @@
       <updated>1657978733137</updated>
       <workItem from="1657978741361" duration="3777000" />
       <workItem from="1657982952226" duration="4078000" />
-      <workItem from="1658028959806" duration="1060000" />
+      <workItem from="1658028959806" duration="3924000" />
     </task>
     <servers />
   </component>
