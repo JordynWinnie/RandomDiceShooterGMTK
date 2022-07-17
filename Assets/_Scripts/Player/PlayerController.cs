@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     {
         currentHealth += health;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+        GameManager.instance.SetHealthUI(currentHealth, maxHealth);
     }
 
     public void TakeDamage(float damage)

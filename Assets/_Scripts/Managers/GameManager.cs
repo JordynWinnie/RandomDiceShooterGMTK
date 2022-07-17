@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     private float _score = 0;
     private bool _isRolling = false;
     private float _internalTimer = 0f;
+    private BuffManager _buffManager;
     [SerializeField] private int currentRoll = -1;
 
     [Header("Player")]
@@ -62,6 +63,7 @@ public class GameManager : MonoBehaviour
         weaponHandler = player.GetComponent<WeaponHandler>();
         _playerController = player.GetComponent<PlayerController>();
         _randInterval = maxRandInterval;
+        _buffManager = GetComponent<BuffManager>();
         StartCoroutine(RollDice());
     }
 
@@ -87,6 +89,7 @@ public class GameManager : MonoBehaviour
         _internalTimer = timer;
         currentRoll = index;
         _isRolling = false;
+        _buffManager.ChangeBuff(currentRoll);
     }
     
     
@@ -152,5 +155,8 @@ public class GameManager : MonoBehaviour
         ScoreUI.SetText($"Score: {_score:00000000}");
     }
 
-    public void AddHealth(float health) => _playerController.AddHealth(health);
+    public void AddHealth(float health)
+    {
+        _playerController.AddHealth(health);
+    }
 }

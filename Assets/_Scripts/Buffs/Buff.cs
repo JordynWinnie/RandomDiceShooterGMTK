@@ -7,7 +7,7 @@ public abstract class Buff
         this.BuffSprite = buffSprite;
     }
     public Sprite BuffSprite;
-    protected abstract void InitialiseBuff();
-    protected abstract void UpdateBuff();
-    protected abstract void CleanUpBuff();
+    public abstract void InitialiseBuff();
+    public abstract void UpdateBuff();
+    public abstract void CleanUpBuff();
 }
