@@ -18,7 +18,6 @@ namespace Projectiles
 
         private float _damage;
         private float _lifetime;
-        [SerializeField] private Rigidbody rb;
         [SerializeField] private TrailRenderer trailRenderer;
 
         public int BulletID => bulletID;
@@ -40,14 +39,6 @@ namespace Projectiles
                 DestroyProjectile();
             else
                 _lifetime -= Time.deltaTime;
-        }
-
-        private void OnEnable()
-        {
-            rb.AddForce(transform.forward * speed, ForceMode.Impulse);
-            _lifetime = lifeTime;
-
-            _damage = damage * damageMultiplier;
         }
 
         private void OnCollisionEnter(Collision collision)
