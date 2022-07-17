@@ -6,9 +6,7 @@ public class SpeedBuff : Buff
 {
     private float currentSpeed = 0f;
 
-    public SpeedBuff(Sprite buffSprite) : base(buffSprite)
-    {
-    }
+
 
     public override void InitialiseBuff()
     {
@@ -24,5 +22,9 @@ public class SpeedBuff : Buff
     public override void CleanUpBuff()
     {
         GameManager.instance._playerMovement.speed = currentSpeed;
+    }
+
+    public SpeedBuff(Sprite buffSprite, string name) : base(buffSprite, name)
+    {
     }
 }

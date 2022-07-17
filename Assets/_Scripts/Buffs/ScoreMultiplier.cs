@@ -5,10 +5,7 @@ namespace Projectiles.Buffs
     public class ScoreMultiplier : Buff
     {
         private float currentScore = 0f;
-        public ScoreMultiplier(Sprite buffSprite) : base(buffSprite)
-        {
-        }
-
+ 
         public override void InitialiseBuff()
         {
             currentScore = GameManager.instance._score;
@@ -27,6 +24,10 @@ namespace Projectiles.Buffs
         public override void CleanUpBuff()
         {
             
+        }
+
+        public ScoreMultiplier(Sprite buffSprite, string name) : base(buffSprite, name)
+        {
         }
     }
 }

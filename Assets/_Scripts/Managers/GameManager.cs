@@ -81,7 +81,7 @@ public class GameManager : MonoBehaviour
     IEnumerator RollDice()
     {
         _isRolling = true;
-        var timesChanged = 20;
+        var timesChanged = 10;
         timerUI.SetText($"Next Roll:\nRolling...");
         var index = -1;
         while (timesChanged > 0)
