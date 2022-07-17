@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour, IDamageable
 {
     [SerializeField] private float maxHealth;
-    private float currentHealth;
+    public float currentHealth;
 
     private void Start()
     {

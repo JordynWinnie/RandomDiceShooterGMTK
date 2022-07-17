@@ -17,14 +17,15 @@ public class BuffManager : MonoBehaviour
             new SpeedBuff(Resources.Load<Sprite>("speed")),
             new ExplosiveBuff(Resources.Load<Sprite>("explosives")),
             new HeavyWeightBuff(Resources.Load<Sprite>("heavyweight")),
+            new KOBuff(Resources.Load<Sprite>("death")),
         };
         currentBuffs = new[] {
-            Buffs[3],
-            Buffs[3],
-            Buffs[3],
-            Buffs[3],
-            Buffs[3],
-            Buffs[3]
+            Buffs[4],
+            Buffs[4],
+            Buffs[4],
+            Buffs[4],
+            Buffs[4],
+            Buffs[4]
         };
         UpdateBuffUI();
     }
