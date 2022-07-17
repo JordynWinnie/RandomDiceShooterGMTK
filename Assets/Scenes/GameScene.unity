@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.000064787346, g: 0.00014024801, b: 0.0042892084,
+  m_IndirectSpecularColor: {r: 0.0000013730266, g: 0.000082977385, b: 0.0042629493,
     a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
@@ -9218,8 +9218,8 @@ MonoBehaviour:
   _playerMovement: {fileID: 0}
   _audioManager: {fileID: 0}
   maxRandInterval: 10
-  maxTime: 60
-  minTime: 30
+  maxTime: 45
+  minTime: 15
   ScoreUI: {fileID: 1637942583}
   HealthUI: {fileID: 1549582236}
   intervalUI: {fileID: 0}
