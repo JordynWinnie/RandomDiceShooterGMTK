@@ -17,7 +17,7 @@ RenderSettings:
   m_Fog: 0
   m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_FogMode: 3
-  m_FogDensity: 0.01
+  m_FogDensity: 0.05
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
@@ -8139,6 +8139,8 @@ MonoBehaviour:
   currentRoll: -1
   player: {fileID: 2066539524}
   weaponCatalogue: {fileID: 11400000, guid: 284bbaee4a250794b81af17d62b38daa, type: 2}
+  _playerController: {fileID: 0}
+  _playerMovement: {fileID: 0}
   maxRandInterval: 10
   timer: 5
   ScoreUI: {fileID: 1637942583}
@@ -8795,6 +8797,7 @@ MonoBehaviour:
   weaponCatalogue: {fileID: 11400000, guid: 284bbaee4a250794b81af17d62b38daa, type: 2}
   weaponEquipIndex: 1
   bulletEquipIndex: 0
+  weaponScript: {fileID: 0}
 --- !u!114 &2066539533
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8807,7 +8810,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55b01de1583ed084b8cb8e0c98ae3b3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
+  maxHealth: 20
 --- !u!1001 &7401597862362293764
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -1,24 +1,25 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using UnityEngine;
 
 public class HealthBuff : Buff
 {
     
-    protected override void InitialiseBuff()
+    public override void InitialiseBuff()
     {
+        Debug.Log("Initialized Buff");
         GameManager.instance.AddHealth(5f);
     }
 
-    protected override void UpdateBuff()
+    public override void UpdateBuff()
     {
-
     }
 
-    protected override void CleanUpBuff()
+    public override void CleanUpBuff()
     {
-
+        Debug.Log("Cleanup Buff");
     }
 
     public HealthBuff(Sprite buffSprite) : base(buffSprite)

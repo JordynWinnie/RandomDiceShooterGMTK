@@ -14,13 +14,15 @@ public class GameManager : MonoBehaviour
     private float _score = 0;
     private bool _isRolling = false;
     private float _internalTimer = 0f;
+    private BuffManager _buffManager;
     [SerializeField] private int currentRoll = -1;
 
     [Header("Player")]
     [SerializeField] private GameObject player;
     [SerializeField] private WeaponCatalogueSO weaponCatalogue;
     private WeaponHandler weaponHandler;
-    private PlayerController _playerController;
+    public PlayerController _playerController;
+    public PlayerMovement _playerMovement;
 
     [Header("Randomizer")]
     [SerializeField] private float maxRandInterval;
@@ -60,8 +62,13 @@ public class GameManager : MonoBehaviour
             Debug.LogError($"Player not assigned in the GameManager.", gameObject);
 
         weaponHandler = player.GetComponent<WeaponHandler>();
+        
         _playerController = player.GetComponent<PlayerController>();
+        _playerMovement = player.GetComponent<PlayerMovement>();
+        
         _randInterval = maxRandInterval;
+        _buffManager = GetComponent<BuffManager>();
+        
         StartCoroutine(RollDice());
     }
 
@@ -74,7 +81,7 @@ public class GameManager : MonoBehaviour
     IEnumerator RollDice()
     {
         _isRolling = true;
-        var timesChanged = 30;
+        var timesChanged = 20;
         timerUI.SetText($"Next Roll:\nRolling...");
         var index = -1;
         while (timesChanged > 0)
@@ -87,6 +94,7 @@ public class GameManager : MonoBehaviour
         _internalTimer = timer;
         currentRoll = index;
         _isRolling = false;
+        _buffManager.ChangeBuff(currentRoll);
     }
     
     
@@ -152,5 +160,9 @@ public class GameManager : MonoBehaviour
         ScoreUI.SetText($"Score: {_score:00000000}");
     }
 
-    public void AddHealth(float health) => _playerController.AddHealth(health);
+    public void AddHealth(float health)
+    {
+        _playerController.AddHealth(health);
+    }
+    
 }

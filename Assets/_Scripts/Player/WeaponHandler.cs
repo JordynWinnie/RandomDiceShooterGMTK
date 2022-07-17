@@ -15,7 +15,7 @@ namespace Player
         [SerializeField] private int bulletEquipIndex; //Bullet to use
 
         private GameObject weaponObject;
-        private Weapon weaponScript;
+        public Weapon weaponScript;
 
         private void Start()
         {
