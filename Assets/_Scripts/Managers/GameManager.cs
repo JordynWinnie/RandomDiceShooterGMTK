@@ -11,7 +11,7 @@ using WeaponNamespace;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-    private float _score = 0;
+    public float _score = 0;
     private bool _isRolling = false;
     private float _internalTimer = 0f;
     private BuffManager _buffManager;
