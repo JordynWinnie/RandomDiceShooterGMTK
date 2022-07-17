@@ -4,7 +4,7 @@ using UnityEngine.AI;
 
 public abstract class Enemy : MonoBehaviour, IDamageable
 {
-    [SerializeField] public Transform playerLocation;
+    protected Transform playerLocation;
     private NavMeshAgent _agent;
     protected TraumaInducer _traumaInducer;
     [SerializeField] protected float health = 10f;
@@ -16,6 +16,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     {
         _agent = GetComponent<NavMeshAgent>();
         _traumaInducer = GetComponent<TraumaInducer>();
+        playerLocation = GameManager.instance.Player.transform;
     }
 
     // Update is called once per frame

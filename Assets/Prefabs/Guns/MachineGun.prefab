@@ -87,8 +87,8 @@ MonoBehaviour:
   damage: 10
   lifetime: 5
   speed: 50
-  explosionRange: 5
-  explosionFalloffPercentage: 50
+  explosionRange: 0
+  explosionFalloffPercentage: 0
 --- !u!1001 &1243446049592715715
 PrefabInstance:
   m_ObjectHideFlags: 0

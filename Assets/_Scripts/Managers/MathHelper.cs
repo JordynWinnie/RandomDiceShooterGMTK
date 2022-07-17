@@ -65,6 +65,12 @@ public static class MathHelper
         return list[RandomFromIntZeroTo(list.Length)];
     }
 
+    public static T RandomFromArray<T>(T[] list, out int index)
+    {
+        index = RandomFromIntZeroTo(list.Length);
+        return list[index];
+    }
+
     public static T RandomFromList<T>(List<T> list)
     {
         return list[RandomFromIntZeroTo(list.Count)];
