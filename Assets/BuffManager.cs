@@ -1,7 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using JetBrains.Annotations;
-using Mono.Cecil;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -19,13 +15,14 @@ public class BuffManager : MonoBehaviour
         {
             new HealthBuff(Resources.Load<Sprite>("heart_sprite")),
             new SpeedBuff(Resources.Load<Sprite>("speed")),
+            new ExplosiveBuff(Resources.Load<Sprite>("explosives")),
         };
         currentBuffs = new[] {
             Buffs[0],
-            Buffs[1],
-            Buffs[1],
-            Buffs[1],
-            Buffs[1],
+            Buffs[2],
+            Buffs[2],
+            Buffs[2],
+            Buffs[2],
             Buffs[1]
         };
         UpdateBuffUI();
